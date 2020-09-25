@@ -112,3 +112,30 @@ a{
         display: flex;
     } 
 } */
+.bg-wrap {
+    
+    min-height: 2000px; 
+    height: 100%;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: auto; 
+
+  }
+  
+  .parallax {
+    background-image: url(../img/newyork.jpg);
+    
+    background-attachment: fixed;
+  }
+  
+  
+  
+  #page-wrap {
+    width: 400px;
+    margin: 50px auto;
+    padding: 30px;
+    background: white;
+    box-shadow: 0 0 20px black;
+    font: 15px/2 Georgia, Serif;
+  }
