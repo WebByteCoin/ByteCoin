@@ -3,49 +3,14 @@
 <head>
 <title>제이쿼리를 이용한 빗썸 AIP 로드하기(자동 리프레쉬 적용)</title>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- 제이쿼리는 이렇게 로드하지 않으면 사용이 불가하다.  -->
+    <script type="text/javascript" src="../static/API_loading__example(JS).js"></script> <!-- .js에서 선언한 함수 띄우기는 0923학습노트 참조 -->
 </head>
-
 <body>
     <h3>빗썸 거래소 정보</h3>
     <div class="mypanel"></div>
-
+    <br>
     <script>
-    $.getJSON('https://api.bithumb.com/public/ticker/BTC', function(data) {
-        
-        var text = `시가: ${data.data.opening_price}<br>
-                    종가: ${data.data.closing_price}<br>
-                    저가: ${data.data.min_price}<br>
-                    고가: ${data.data.max_price}`
-                    //변수들의 한국어명은 https://apidocs.bithumb.com/docs/ticker 참조
-        
-        $(".mypanel").html(text);
-    });
-    </script>
-    <p><br>10초 단위로 값을 갱신합니다.</p>
-    <script type="text/javascript">
-    setTimeout("location.reload()", 10000)
-    // 페이지 새로고침 관해서 추가 참조 https://www.thewordcracker.com/jquery-examples/refresh-current-page-using-javascript/
+        loading();
     </script>
 </body>
 </html>
-
-<!-- 주석
-위에 $.getJSON('https://api.bithumb.com/public/ticker/BTC', function(data) { 부분에대해..
-
-    $.getJSON('http://time.jsontest.com', function(data) { <<< 이렇게 먼저 보면 좋은데
-        (출처: http://zetcode.com/javascript/jsonurl/)
-    링크된 주소에 들어가보면.. {} 안에 "date", "time"등의 데이터가 있다! 파이썬 딕셔너리처럼..
-    그래서 function(data)로... data안에 해당 페이지 데이터를 모두 담고..
-    밑에서 Date: ${data.date} 와 같은 식으로 호출을 하는 점에 착안하여
-
-    위 https://api.bithumb.com/public/ticker/BTC 에서는
-    {}안에 status와 data가 있는데 data는 또 {}의 형태로 데이터를 가지므로..
-    위 소스에서 data.data.closing_price와 같이 지정을 해주면 올바른 값을 로드하게 된다!!
-
-    위에서 출처라고 적은 사이트(http://zetcode.com/javascript/jsonurl/)에 보면
-    제이쿼리 말고 다른 방식으로도 구현한 것을 볼 수 있다.
-    제이쿼리는 자바스크립트 언어를 확장한 또 다른 스크립트 언어인데 IE8/9에서 지원이 안 되기도 한다. . .
-
-    참고로, ` 는 키보드 ESC아래쯤에 숫자키 1앞에있는 그 키임!
--->
