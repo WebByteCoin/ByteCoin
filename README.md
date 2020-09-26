@@ -14,4 +14,5 @@
 - [ ] 게시판 구현
 - [ ] Flask / Apache 연동
 - [ ] Flask / MariaDB 연동
-- [ ] 호스팅
+- [x] Flask / gunicorn / nginx 연동
+- [x] 호스팅
