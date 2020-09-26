@@ -15,4 +15,4 @@
 - [ ] Flask / Apache 연동
 - [ ] Flask / MariaDB 연동
 - [x] Flask / gunicorn / nginx 연동
-- [x] 호스팅
+- [x] 호스팅 [호스팅 주소 (도메인 신청중 1~2일 소요) : http://3.34.159.85/]
