@@ -1,7 +1,7 @@
-/* *{background-color: rgb(35, 46, 79);} */
+
 body {
     margin: 0;
-    font-family: 'Jua', sans-serif;
+    font-family: 'Gothic A1', sans-serif;
 }
 a{
     text-decoration: none;
@@ -11,10 +11,10 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: rgb(35, 46, 79);
-    padding: 8px 12px;
-    
+    background-color:silver
+    padding 8px 12px;
 }
+
 .navbar_logo{
     font-size: 30px;
     color: rgb(85, 114, 234);
@@ -33,23 +33,16 @@ a{
 }
 .navbar_menu li {
     padding: 8px 12px;
-    font-size: 30px;
+    font-size: 25px;
 }
 .navbar_menu span {
     color: thistle;
 }
 .navbar_menu li:hover {
-    background-color: rgba(255, 255, 255, 0.103);
-    border-radius: 4px;
-    
+    background-color: rgba(0, 0, 0, 0.103);
+    border-radius: 10px;
 }
-/* 메뉴 아이콘 */
-/* .navbar_icons{
-    list-style: none;
-    color: rgb(85, 114, 234);
-    display: flex;
-    padding-left: 0;
-} */
+
 
 .navbar_smallmenu {
     list-style: none;
@@ -77,59 +70,6 @@ a{
 }
 
 
-
-/* @media screen and (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px 24px;
-    }
-
-    .navbar_menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-     .navbar_menu li {
-        width: 100%;
-        text-align: center;
-    }
-
-    .navbar_icons {
-        display: none;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .navbar_toogleBtn {
-        display: block;
-    }
-
-    .navbar_menu.active,
-    .navbar_icons.active{
-        display: flex;
-    } 
-} */
-.bg-wrap {
-    
-    min-height: 2000px; 
-    height: 100%;
-    background-size: cover; 
-    background-position: center;
-    background-repeat: no-repeat;
-    overflow: auto; 
-
-  }
-  
-  .parallax {
-    background-image: url(../img/newyork.jpg);
-    
-    background-attachment: fixed;
-  }
-  
-  
   
   #page-wrap {
     width: 400px;
@@ -138,4 +78,16 @@ a{
     background: white;
     box-shadow: 0 0 20px black;
     font: 15px/2 Georgia, Serif;
+  }
+
+  .introduce {
+      margin: auto;
+      width: 700px;
+      border: 1px solid black;
+      font-size: 1.5rem;
+      height: 400px;
+      background-color: white;
+      margin-top: 250px;
+      overflow: auto;
+      border-radius: 10px;
   }
