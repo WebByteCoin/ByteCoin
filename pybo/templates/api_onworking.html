@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>제이쿼리를 이용한 빗썸 AIP 로드하기(자동 리프레쉬 적용)</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/api_onworking.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/api_onworking.css" />
+</head>
+<body>
+    <h3>빗썸 거래소 정보</h3>
+    <table>
+        <th>코인명/거래소</th>
+        <th><a href="https://www.bithumb.com/">빗썸</a></th>
+        <th><a href="https://www.korbit.co.kr/">코빗</a></th>
+        <th><a href="https://upbit.com/">업비트</a></th>
+        <tr><!-- 첫 번째 내용 줄 시작 -->
+            <th>BTC(비트코인)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_pbtc"></div></td>
+            <td><div class="cbt_pbtc">작업중</div></td>
+            <td><div class="ubt_pbtc"></div></td>
+        </tr>
+        <tr>
+            <th>ETH(이더리움)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_peth"></div></td>
+            <td>코빗의 ETH로딩</td>
+            <td><div class="ubt_peth"></div></td>
+        </tr>
+        <tr>
+            <th>LTC(라이트코인)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_pltc"></div></td>
+            <td>코빗의 LTC로딩</td>
+            <td><div class="ubt_pltc"></div></td>
+        </tr>
+        <tr>
+            <th>LINK(체인링크)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_plink"></div></td>
+            <td>코빗의 LINK로딩</td>
+            <td><div class="ubt_plink"></div></td>
+        </tr>
+        <tr>
+            <th>DOT(폴카닷)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_pdot"></div></td>
+            <td>코빗 제공 안함</td>
+            <td><div class="ubt_pdot"></div></td>
+        </tr>
+        <tr>
+            <th>EOS(이오스)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_peos"></div></td>
+            <td>코빗의 EOS로딩</td>
+            <td><div class="ubt_peos"></div></td>
+        </tr>
+        <tr>
+            <th>XRP(리플)<br><a class="t1">고가/저가</a></th>
+            <td><div class="bth_pxrp"></div></td>
+            <td>코빗의 XRP로딩</td>
+            <td><div class="ubt_pxrp"></div></td>
+        </tr>
+    </table>
+</body>
+</html>

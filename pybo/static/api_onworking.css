@@ -1,0 +1,25 @@
+div {
+    text-align: center;
+    border: solid 1px orange;
+    width: 200px;
+}
+
+table {
+    border : solid 0px;
+    background-color: lightblue;
+}
+
+.t1 {
+    color:lightgray;
+}
+.t1:hover {
+    color:lightgray
+}
+a {
+    text-decoration: none;
+    color: black;
+    /* a:link, a:visited, a:active, a:hover 옵션으로 세부 조정 가능! */
+}
+a:hover {
+    color: darkslateblue;
+}
