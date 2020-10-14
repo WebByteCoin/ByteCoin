@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+<title>제이쿼리를 이용한 빗썸 AIP 로드하기(자동 리프레쉬 적용)</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="test.js"></script> <!-- .js에서 선언한 함수 띄우기는 0923학습노트 참조 -->
+</head>
+<body>
+    <h3>빗썸 거래소 정보</h3>
+    <div class="mypanel"></div>
+    <br>
+    <script>
+        loadingbth();
+    </script>
+</body>
+</html>
+
+<!-- 이방법 말고 업데이트 되는 데이터 자체를 바로 가져올 수 있는 방법 찾는 중;
+계속 페이지 통으로 새로고침밖에 없나?ㅠ 그럼 test2.html처럼 html in html 중 최신 기법 
+찾아봐야 할 듯. (https://okky.kr/article/278371), (https://www.clien.net/service/board/news/13485840?od=T31&po=0&category=&groupCd=allinfo) -->

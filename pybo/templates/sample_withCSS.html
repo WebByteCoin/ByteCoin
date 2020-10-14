@@ -1,0 +1,43 @@
+<!--
+특정 파트 새로고침을 : HTML문서 안에 HTML페이지 로드 하기. . .
+
+<title>코인 거래정보 페이지</title>
+<iframe src="http://bytecoin.site/" style="width:180px; height:180px;">
+    <p>현재 사용 중인 브라우저는 iframe 요소를 지원하지 않습니다!</p>
+</iframe>
+
+위에는 iframe으로 구현시 코드, 아래는 object로 구현한 코드
+
+문제는 iframe도 object도 점차 지양중인 기술(html5 미지원 속성 다수)
+http://tcpschool.com/html-tags/iframe
+http://tcpschool.com/html-tags/iframe
+기타 참조: https://www.zdnet.com/article/google-launches-portals-a-new-web-page-navigation-system-for-chrome/
+-->
+
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>코인 가격 정보</title>
+    <style>
+        object{
+            height:175px; 
+            width: 170px; 
+            margin-top: 300px;
+            margin-left: 400px;
+            background-color: #FFFFFF; /* #708de6 */
+        }
+        body{
+            background-color: #13318d;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <object data="http://bytecoin.site/" type="text/html" title="코인시세 로딩">
+        <a href="http://bytecoin.site/">인라인프레임이 표시되지 않는 분은 여기를 클릭하세요.</a>
+        </object>
+    </p>
+</body>
+</html>
