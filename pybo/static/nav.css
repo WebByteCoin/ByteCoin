@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+}
+a{
+    text-decoration: none;
+    color:black;
+  }
+.navbar_logo{
+    justify-content: space-between; 
+    align-items: center;
+    text-align: center;
+    padding: 8px 12px;
+    /* border-bottom: solid 1px grey; */
+    
+  }
+  .byte {
+    font-family: 'Gugi', cursive;
+
+  }
+  .navbar_logo a {
+    font-size: 40px;
+    color: black;
+    
+}
+
+
+.navbar_logo i {
+    color: rgb(37, 37, 34);
+    font-size: 40px;
+
+}
+
+.navbar_smallmenu {
+  position: absolute;
+  right: 500px;
+  top: 5px;
+  list-style: none;
+  display: flex;
+  
+}
+.navbar_smallmenu a {
+  padding: 8px 12px;
+    font-size: 13px;
+    margin: auto;
+   
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:white;
+    padding:8px 12px;
+    /* border-bottom: solid 1px grey; */
+    
+}
+
+
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    text-align: center;
+    margin: auto;
+}
+.navbar_menu li {
+    padding: 10px 50px;
+    font-size: 20px;    
+    text-transform: uppercase;
+    position: relative;
+}
+.navbar_menu li a:before, .navbar_menu li a:after{
+  content: '';
+  border-bottom: solid 2px black;
+  position: absolute;
+  bottom: 0;
+  width: 0;
+}
+.navbar_menu li a:before { left: 0;}
+.navbar_menu li a:after { right: 0;}
+
+.navbar_menu li a:hover:before, .navbar_menu li a:hover:after {
+    width: 50%;
+}
+.navbar_menu li a:before,.navbar_menu li a:after{
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+
+
+
+.foot {
+  position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+	padding: 30px 0;
+  text-align: center;
+  background-color: white;
+  border-top: 1px solid rgb(206, 206, 206);
+}
+
