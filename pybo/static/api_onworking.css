@@ -1,16 +1,28 @@
 div {
     text-align: center;
-    border: solid 1px orange;
-    width: 200px;
+    border: solid 0px gray;
+    width: auto;
 }
 
 table {
-    border : solid 0px;
-    background-color: lightblue;
+    margin-left: auto;
+    margin-right: auto;
+    border : solid 0px gray;
+    background-color: whitesmoke;
+    border-top: solid 1px gray;
+}
+
+th, td {
+    margin: -1px, -1px, -1px, -1px;
+    border-bottom: solid 1px gray;
+}
+
+th {
+    background-color: rgb(230, 228, 228);
 }
 
 .t1 {
-    color:lightgray;
+    color:lightgray
 }
 .t1:hover {
     color:lightgray
@@ -21,5 +33,9 @@ a {
     /* a:link, a:visited, a:active, a:hover 옵션으로 세부 조정 가능! */
 }
 a:hover {
-    color: darkslateblue;
+    color: lightgray;
+}
+
+h3 {
+    text-align: center;
 }
