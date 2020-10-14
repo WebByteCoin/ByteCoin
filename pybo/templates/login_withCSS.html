@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./static/base_style.css">
+    <link rel="stylesheet" href="./static/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/nav.css">
+    <script src="./static/nav.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Byte Coin</title>
+<!-- 위 소스에서 ./static 중 . 은 작업을 위해 추가된 부분입니다. -->
+
+</head>
+
+<body>
+    <nav >
+        <div class="nav_all">
+            <div class="navbar_logo">
+                <i class="fab fa-bitcoin"></i>
+                <a href="/" class="byte">Byte Coin</a> 
+                
+                <ul class="navbar_smallmenu">
+                    <a href="/auth/login">로그인</a>
+                    <a href="/auth/signup">회원가입</a> 
+                </ul>
+
+                
+
+            </div> 
+            <div class="navbar">
+                <div class="navbar_menu">
+                    <li><a href="/">코인시세</a></li>
+                    <li><a href="/coinsite">코인</a></li>
+                    <li><a href="/itemsite">거래사이트</a></li>
+                    <li><a href="/question/list">게시판</a></li>
+                </div>
+
+            </div>
+        </div>
+    </nav>
+    
+
+<!-- 아래 스타일 태그 작성 부분을 css로 생성하거나 기존 css에 병합하시면 됩니다. -->
+<style>
+    .my-3 {
+        max-width: 420px;
+        height: 380px;
+        margin-left: auto;
+        margin-right: auto;
+        border: solid 1px lightgray;
+        border-radius: 5% / 5%;
+        background-color: whitesmoke;
+        display: block;
+    }
+
+    .form-group {
+        display: block;
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+    }
+
+    .btn-primary {
+        width: 70%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20%;
+    }
+
+    .btn-primary {
+        background-color: lightgray;
+        color: white;
+        border-color: lightgray;
+    }
+
+</style>  
+
+<div class="container my-3">
+    <form method="post" class="post-form">
+        <input id="csrf_token" name="csrf_token" type="hidden" value="ImY5YTk2NDVkOGVkZTQ5MWE4Y2U2YjFmNjhmZGJlNjVmMzNhYjQzMjMi.X4Zkjg.3mdrcpXTJrILU11ek2rZOCdTZMQ">
+        
+<!-- flash 오류 -->
+
+        <div class="form-group">
+            <label for="username">사용자 이름</label>
+            <input type="text" class="form-control" name="username" id="username"
+                   value="">
+        </div>
+        <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   value="">
+        </div>
+        <button type="submit" class="btn btn-primary">로그인</button>
+    </form>
+</div>
+
+
+</body>
+<footer>
+    <div class="foot">
+        내용 추가중
+    </div>
+</footer>
+</html>
