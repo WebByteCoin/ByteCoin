@@ -14,6 +14,16 @@ def hello_pybo():
 
 @bp.route('/')
 def loot():
-    return render_template('API_loading__example(JS).html')
+    return render_template('api_onworking.html')
     # return redirect(url_for('question._list'))
 
+
+@bp.route('/itemsite')
+def item():
+    return render_template('introduce.html')
+    # return redirect(url_for('question._list'))
+
+@bp.route('/coinsite')
+def coin():
+    return render_template('introduce.html')
+    # return redirect(url_for('question._list'))
