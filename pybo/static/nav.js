@@ -14,3 +14,10 @@ $(document).ready(function(){
 	})(jQuery);
 
 });
+
+const toggleBtn = document.querySelector('.navbar_toogle');
+const menu2 = document.querySelector('.navbar_menu');
+
+toggleBtn.addEventListener('click', ()=> {
+    menu2.classList.toggle('active');
+});

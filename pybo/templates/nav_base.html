@@ -3,61 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
-    <script src="{{ url_for('static',filename='nav.js')}}"></script>
+    <link rel="stylesheet" href="../static/nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/48c2f0e0c8.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/nav.js"defer></script>
     <title>Byte Coin</title>
-<!--  -->
-
+    
 </head>
 <body>
-    <nav >
+    <nav>
         <div class="nav_all">
             <div class="navbar_logo">
                 <i class="fab fa-bitcoin"></i>
-                <a href="/" class="byte">Byte Coin</a> 
-                {% if g.user.username == "admin" %}
+                <a href="" class="byte">Byte Coin</a>  
+                <a href="#" class="navbar_toogle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="" class="nav_img">
+                    <i class="fas fa-user-plus"></i>
+                </a>         
                 <ul class="navbar_smallmenu">
-                    <a href="/auth/logout">{{ g.user.username}}(로그아웃)</a>
-                    <a href="/manage">회원관리</a> 
+                    <a href="#">로그인</a>
+                    <a href="#">회원가입</a> 
                 </ul>
-                {% elif g.user %}
-                <ul class="navbar_smallmenu">
-                   <a href="/auth/logout">{{ g.user.username }}(로그아웃)</a>
-                </ul>
-                {% else %}
-                <ul class="navbar_smallmenu">
-                    <a href="/auth/login">로그인</a>
-                    <a href="/auth/signup">회원가입</a> 
-                </ul>
-
-                {% endif %}
-
-            </div> 
+            </div>          
             <div class="navbar">
                 <div class="navbar_menu">
-                    <li><a href="/">코인시세</a></li>
-                    <li><a href="/coinsite">코인</a></li>
-                    <li><a href="/itemsite">거래사이트</a></li>
-                    <li><a href="/question/list">게시판</a></li>
+                    <li><a href="">코인시세</a></li>
+                    <li><a href="">코인</a></li>
+                    <li><a href="">거래사이트</a></li>
+                    <li><a href="">게시판</a></li>
                 </div>
-
             </div>
         </div>
     </nav>
-    
-
-    
-{% block content %}
-{% endblock %}
-
 </body>
 <footer>
     <div class="foot">
-        내용 추가중
+        ㅁ나ㅓㅁ아ㅓ마ㅓㄻ이ㅏㅓㅇㅁ나ㅣ러ㅏㅓ뢰ㅏ먼ㄹ
     </div>
 </footer>
-</html>
+
+
+</html

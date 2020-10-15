@@ -10,39 +10,32 @@ a{
     align-items: center;
     text-align: center;
     padding: 8px 12px;
-    /* border-bottom: solid 1px grey; */
-    
   }
   .byte {
     font-family: 'Gugi', cursive;
-
   }
   .navbar_logo a {
     font-size: 40px;
     color: black;
-    
 }
-
-
 .navbar_logo i {
     color: rgb(37, 37, 34);
     font-size: 40px;
-
 }
 
 .navbar_smallmenu {
   position: absolute;
-  right: 500px;
+  right: 400px;
   top: 5px;
   list-style: none;
   display: flex;
-  
+  padding: 8px 12px;
+  margin: 0;
 }
 .navbar_smallmenu a {
   padding: 8px 12px;
     font-size: 13px;
     margin: auto;
-   
 }
 .navbar {
     display: flex;
@@ -50,11 +43,7 @@ a{
     align-items: center;
     background-color:white;
     padding:8px 12px;
-    /* border-bottom: solid 1px grey; */
-    
 }
-
-
 .navbar_menu {
     display: flex;
     list-style: none;
@@ -84,11 +73,8 @@ a{
   -webkit-transition: all 0.2s ease;
           transition: all 0.2s ease;
 }
-
-
-
 .foot {
-  position: absolute;
+  position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -97,4 +83,70 @@ a{
   background-color: white;
   border-top: 1px solid rgb(206, 206, 206);
 }
+.navbar_toogle {
+  display: none;
+  position: absolute;
+  font-size: 23px;
+}
+.nav_img{
+  display: none;
+  position: absolute;
+  right: 32px;
+  font-size: 23px;
+}
 
+
+@media only screen and (max-width:768px){
+  .nav_img {
+    display: flex;
+    
+  }
+  .navbar_logo{
+    position: relative;
+  }
+  .navbar_logo a{
+    font-size: 30px;
+  }
+  .navbar_logo i{
+    font-size: 30px;
+  }
+  .navbar{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar_menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navbar_toogle{
+    position: absolute;
+    top: 10%;
+    display: block;
+  }
+  .nav_img{
+    position: absolute;
+    top: 5px;
+    display: block;
+  }
+  .navbar_smallmenu{
+    display: none;
+  }
+  .navbar_menu.active{
+    display: flex;
+  }
+  .foot{
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width:1400px){
+  
+  .navbar_smallmenu{
+   right: 10px;
+  }
+  
+  .foot{
+    font-size: 20px;
+  }
+}
