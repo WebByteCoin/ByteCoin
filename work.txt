@@ -1,0 +1,67 @@
+경로
+<프로젝트파일>
+c:\projects\myproject\<여기에작업폴더가 들어가도록>
+
+<가상환경>[환경변수에 c:\venvs를 PATH에 등록]
+c:\venvs
+venvs 파일은 압축된 venvs파일 사용
+<마리아디비 도커>
+hub.docker.com 에서 마리아db공식 이미지 설치해서 컨테이너생성
+컨테이너옵션은
+루트비밀번호 : 1234
+데몬으로실행
+포트포워딩은 3306포트로 
+
+<mariadb>
+CREATE DATABASE d_test;
+
+USE d_test;
+
+CREATE TABLE reporter
+(
+    `r_id`       INT            NOT NULL    AUTO_INCREMENT, 
+    `nick_name`  VARCHAR(20)    NOT NULL, 
+    `pw`       VARCHAR(255)    NOT NULL, 
+    `reg_date`   TIMESTAMP      NULL   DEFAULT current_timestamp(), 
+    `email`      VARCHAR(45)    NOT NULL, 
+    `phone`      VARCHAR(11)    NOT NULL, 
+    PRIMARY KEY (r_id)
+);
+
+CREATE TABLE post
+(
+    `p_id`      INT              NOT NULL    AUTO_INCREMENT, 
+    `title`     VARCHAR(45)      NOT NULL, 
+    `content`   VARCHAR(2000)    NULL, 
+    `reporter`  INT              NOT NULL, 
+    `reg_date`  TIMESTAMP        NULL DEFAULT current_timestamp(), 
+    `pub_date`  DATETIME         NULL, 
+    PRIMARY KEY (p_id)
+);
+
+CREATE TABLE answer
+(
+	`a_id`      INT              NOT NULL    AUTO_INCREMENT,
+	`p_id`  INT     NOT NULL,
+	`content` VARCHAR(2000) NULL,
+	`reporter` INT    NOT NULL,
+	`reg_date` TIMESTAMP  NULL DEFAULT current_timestamp(),
+	`pub_date` DATETIME NULL,
+	PRIMARY KEY(a_id)
+);
+
+ALTER TABLE post
+    ADD CONSTRAINT FK_post_reporter_reporter_r_id FOREIGN KEY (reporter)
+        REFERENCES reporter (r_id) ON DELETE CASCADE ON UPDATE RESTRICT;
+       
+ALTER TABLE answer
+	ADD CONSTRAINT FK_answer_p_id_post_p_id FOREIGN KEY (p_id)
+		REFERENCES post (p_id) ON DELETE CASCADE;
+	
+ALTER TABLE answer 
+	ADD CONSTRAINT FK_answer_reporter_reporter_r_id FOREIGN KEY (reporter)
+		REFERENCES reporter (r_id) ON DELETE CASCADE;
+
+도커 마리아db와 디비버 연결후 차례대로 입력
+
+
