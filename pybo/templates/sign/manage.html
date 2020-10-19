@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bytecoin 회원관리</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+</head>
+<nav class="container">
+    <h1>회원 관리</h1>
+</nav>
+<body>
+{{ data[0] }}
+{% if g.user and g.user == 'admin' %}
+<div class="container my-3">
+    <table class="table">
+        <tr>
+            <td>회원 번호</td>
+            <td>아이디</td>
+            <td>이메일</td>
+            <td>전화번호</td>
+        </tr>
+
+
+    </table>
+</div>
+{% else %}
+
+<div class="container my-3">
+
+    접근 권한이 없습니다.
+
+</div>
+{% endif %}
+</body>
+</html>

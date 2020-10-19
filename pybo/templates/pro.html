@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=640,user-scalable=no">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='pro.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
+    <title>Byte Coin</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/48c2f0e0c8.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../static/nav.js"defer></script>
+    <title>Byte Coin</title>
+
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <i class="fab fa-bitcoin"></i>
+            <a href="/">Byte Coin</a>
+
+        </div>
+
+        <div class="navbar_menu">
+            <li><a href="/">코인시세</a></li>
+            <li><a href="">거래사이트</a></li>
+            <li><a href="">코인</a></li>
+            <li><a href="/question/list">게시판</a></li>
+        </div>
+        {% if g.user and g.user == "admin" %}
+        <ul class="navbar_smallmenu">
+            <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
+            <a href="/manage">회원 관리</a>
+        </ul>
+        {% elif g.user %}
+        <ul class="navbar_smallmenu">
+            <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
+            <a href="#">사이트</a>
+        </ul>
+        {% else %}
+        <ul class="navbar_smallmenu">
+            <a href="/auth/login">로그인</a>
+            <a href="/auth/signup">회원가입</a>
+            <a href="#">사이트</a>
+        </ul>
+        {% endif  %}
+
+
+        <a href="#" class="navbar_toogleBtn">
+            <i class="fas fa-bars"></i>
+        </a>
+    </nav>
+{% block content %}
+{% endblock %}
+</body>
+</html>

@@ -5,21 +5,38 @@ from pybo import db
 from pybo.form import SignupForm , LoginForm
 from pybo.models import User
 import functools
+import mariadb
+import sys
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
+def connect_data():
+    conn = mariadb.connect(
+        user="root",
+        password="1234",
+        host="localhost",
+        port=3306,
+        database="d_test"
+    )
+    return conn
 
 @bp.route('/signup/', methods=('GET', 'POST'))
 def signup():
     form = SignupForm()
     if request.method == 'POST' and form.validate_on_submit():
-        user = User.query.filter_by(username=form.username.data).first()
-        if not user:
-            user = User(username=form.username.data,
-                        password=generate_password_hash(form.password1.data),
-                        email=form.email.data)
-            db.session.add(user)
-            db.session.commit()
+        userpw = generate_password_hash(form.password1.data)
+        conn = connect_data()
+        cur = conn.cursor()
+        cur.execute("SELECT nick_name FROM reporter r WHERE r.nick_name like '{}' ".format(form.username.data))
+        data = cur.fetchall()
+        if data == []:
+            conn = connect_data()
+            cur = conn.cursor()
+            sql = "INSERT INTO d_test.reporter(nick_name,pw,email,phone) VALUES('{}','{}','{}','{}'); ".format(form.username.data,
+            userpw,form.email.data,form.phone.data)
+            cur.execute(sql)
+            conn.commit()
+
             return redirect(url_for('main.loot'))
         else:
             flash('이미 존재하는 사용자입니다.')
@@ -32,14 +49,27 @@ def login():
     form = LoginForm()
     if request.method == 'POST' and form.validate_on_submit():
         error = None
-        user = User.query.filter_by(username=form.username.data).first()
-        if not user:
+
+        conn = connect_data()
+        cur = conn.cursor()
+        cur.execute("SELECT r_id,nick_name,email,phone FROM reporter r WHERE r.nick_name like '{}'".format(form.username.data))
+        user = cur.fetchone()
+
+        if user == None:
             error = "존재하지 않는 사용자입니다."
-        elif not check_password_hash(user.password, form.password.data):
-            error = "비밀번호가 올바르지 않습니다."
+
+        else:
+
+            userid = form.username.data
+            cur.execute("SELECT pw FROM reporter WHERE reporter.nick_name ='{}'".format(form.username.data))
+            password = cur.fetchone()
+
+            if not check_password_hash(password[0],form.password.data):
+                error = "비밀번호가 틀렸습니다."
+
         if error is None:
             session.clear()
-            session['user_id'] = user.id
+            session['user_id'] = userid
             return redirect(url_for('main.loot'))
         flash(error)
     return render_template('sign/login.html', form=form)
@@ -50,7 +80,7 @@ def load_logged_in_user():
     if user_id is None:
         g.user = None
     else:
-        g.user = User.query.get(user_id)
+        g.user = user_id
 
 
 @bp.route('/logout/')

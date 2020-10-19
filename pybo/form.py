@@ -21,6 +21,7 @@ class SignupForm(FlaskForm):
         DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다 !')])
     password2 = PasswordField('비밀번호확인', validators=[DataRequired()])
     email = EmailField('이메일', [DataRequired(), Email()])
+    phone = StringField('전화번호',validators=[DataRequired() , Length(min=10,max=11)])
 
 #로그인 폼
 class LoginForm(FlaskForm):
