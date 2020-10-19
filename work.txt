@@ -3,7 +3,7 @@
 c:\projects\myproject\<여기에작업폴더가 들어가도록>
 
 <가상환경>[환경변수에 c:\venvs를 PATH에 등록]
-c:\venvs
+c:\venvs << 가상환경 경로
 venvs 파일은 압축된 venvs파일 사용
 <마리아디비 도커>
 hub.docker.com 에서 마리아db공식 이미지 설치해서 컨테이너생성
@@ -13,6 +13,9 @@ hub.docker.com 에서 마리아db공식 이미지 설치해서 컨테이너생�
 포트포워딩은 3306포트로 
 
 <mariadb>
+
+[도커 마리아db와 디비버 연결후 차례대로 입력]
+
 CREATE DATABASE d_test;
 
 USE d_test;
@@ -62,6 +65,9 @@ ALTER TABLE answer
 	ADD CONSTRAINT FK_answer_reporter_reporter_r_id FOREIGN KEY (reporter)
 		REFERENCES reporter (r_id) ON DELETE CASCADE;
 
-도커 마리아db와 디비버 연결후 차례대로 입력
+<플라스크>
+파이참 실행후 프로젝트폴더 불러온후에 터미널에서 myproject.cmd 입력
+가상환경 변경된후에 flask run 입력하면 크롬에서 로컬호스트 5000으로 접속가능
+
 
 
