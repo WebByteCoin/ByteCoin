@@ -4,6 +4,7 @@ from ..models import Question , User
 from werkzeug.utils import redirect
 import mariadb
 import sys
+import math
 bp = Blueprint('main', __name__,url_prefix='/')
 
 def connect_data():
@@ -45,11 +46,18 @@ def loot():
 #     return render_template('/sign/manage.html', data= 1)
 #     # return redirect(url_for('question._list'))
 
-
 @bp.route('/manage')
 def manage():
-    page = request.args.get('page', type=int, default = 1)
-    user_list = User.query.order_by(User.id.desc())
-    user_list = user_list.paginate(page, per_page=10)
-    return render_template('/sign/manage.html', user_list = user_list)
+    p_page = request.args.get('page', type=int, default = 1)
+    per_page = 10
+    limit = (p_page -1) * 10
 
+    conn = connect_data()
+    cur = conn.cursor()
+    cur.execute("SELECT count(*) FROM reporter")
+    total_cnt = cur.fetchone()
+    total_page = math.ceil(total_cnt[0]/per_page)
+    cur.execute("SELECT r_id, nick_name, email,phone,reg_date FROM reporter ORDER BY r_id DESC limit {},10".format(limit))
+    user_list = cur.fetchall()
+
+    return render_template('/sign/manage.html', user_list = user_list, lp = total_page,p_page=p_page)
