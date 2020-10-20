@@ -1,13 +1,13 @@
-
 .all {
   position: relative;
-  top: 200px;
+  top: 150px;
+
 }
 
 .tab_menu_container {
   position: relative;
   margin: auto;
-  width: 800px;
+  width: 50%;
   /* border-style: groove; */
   border-bottom: solid 1px grey;
   display:flex;
@@ -16,7 +16,7 @@
 
 .tab_wrap{
   margin: auto;
-  width: 800px;
+  width:50%;
   /* border: 2px solid black;
   outline-style: outset;
   outline-color: grey; */
@@ -38,7 +38,7 @@ button {
 .tab_menu_btn {
   width:80px;
   height:40px;
-  transition:0.3s all;
+  transition:0.1s all;
 }
 .tab_menu_btn.on {
   border-bottom:2px solid grey;
@@ -56,10 +56,23 @@ button {
 .tab_box.on {
   display:block;
 }
-
-@media only screen and (max-width:600px){
-  .navbar{
-    display: none;
+@media only screen and (max-width:900px){
+  .tab_menu_container {
+    width: 100%;
   }
+  .tab_wrap{
+    width: 100%;
+  }
+}
+@media only screen and (max-width:1400px){
+
+  .tab_menu_container {
+    width: 80%;
+  }
+  .tab_wrap{
+    width: 80%;
+  }
+
+
 
 }

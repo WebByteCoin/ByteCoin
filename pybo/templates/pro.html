@@ -17,43 +17,54 @@
 
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar_logo">
-            <i class="fab fa-bitcoin"></i>
-            <a href="/">Byte Coin</a>
-
+    <nav>
+        <div class="nav_all">
+            <div class="navbar_logo">
+                <i class="fab fa-bitcoin"></i>
+                <a href="" class="byte">Byte Coin</a>
+                <a href="#" class="navbar_toogle">
+                    <i class="fas fa-bars"></i>
+                </a>
+                <a href="" class="nav_img">
+                    <i class="fas fa-user-plus"></i>
+                </a>
+                    {% if g.user and g.user == "admin" %}
+                <ul class="navbar_smallmenu">
+                    <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
+                    <a href="/manage">회원 관리</a>
+                </ul>
+                {% elif g.user %}
+                <ul class="navbar_smallmenu">
+                    <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
+                    <a href="#">사이트</a>
+                </ul>
+                {% else %}
+                <ul class="navbar_smallmenu">
+                    <a href="/auth/login">로그인</a>
+                    <a href="/auth/signup">회원가입</a>
+                    <a href="#">사이트</a>
+                </ul>
+                {% endif  %}
+            </div>
+            <div class="navbar">
+                <div class="navbar_menu">
+                    <li><a href="/">코인시세</a></li>
+                    <li><a href="">거래사이트</a></li>
+                    <li><a href="">코인</a></li>
+                    <li><a href="/question/list">게시판</a></li>
+                </div>
+            </div>
         </div>
-
-        <div class="navbar_menu">
-            <li><a href="/">코인시세</a></li>
-            <li><a href="">거래사이트</a></li>
-            <li><a href="">코인</a></li>
-            <li><a href="/question/list">게시판</a></li>
-        </div>
-        {% if g.user and g.user == "admin" %}
-        <ul class="navbar_smallmenu">
-            <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
-            <a href="/manage">회원 관리</a>
-        </ul>
-        {% elif g.user %}
-        <ul class="navbar_smallmenu">
-            <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
-            <a href="#">사이트</a>
-        </ul>
-        {% else %}
-        <ul class="navbar_smallmenu">
-            <a href="/auth/login">로그인</a>
-            <a href="/auth/signup">회원가입</a>
-            <a href="#">사이트</a>
-        </ul>
-        {% endif  %}
-
-
-        <a href="#" class="navbar_toogleBtn">
-            <i class="fas fa-bars"></i>
-        </a>
     </nav>
 {% block content %}
 {% endblock %}
 </body>
+<footer>
+    <div class="foot">
+        BYTE COIN | 팀장 : 권태준<br>
+        전화번호 : 010-2593-9506 | 팀원: 김혜은 김휘람 <br>
+        본 사이트에서 제공되는 모든 정보는 투자판단의 참고자료이며 서비스 이용에 따른 최종 책임은 이용자에게 있습니다.<br>
+        Copyright (c) BYTE COIN All Rights Reserved.
+    </div>
+</footer>
 </html>
