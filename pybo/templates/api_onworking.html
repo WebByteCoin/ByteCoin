@@ -4,60 +4,27 @@
 {% block content %}
 <thead>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="{{ url_for('static',filename='api_onworking.js')}}"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='api_onworking.css') }}">
+<script src="{{ url_for('static',filename='currency_cal.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='api_style.css') }}">
+
 </thead>
 <tbody>
 <div class="container my-4">
-    <h3 class="head3">빗썸 거래소 정보</h3>
-    <table class="info_table">
-        <th class="ttitle">코인명/거래소</th>
-        <th class="ttitle"><a class="Alink" href="https://www.bithumb.com/">빗썸(KRW)</a></th>
-        <th class="ttitle"><a class="Alink" href="https://upbit.com/">업비트(KRW)</a></th>
-        <th class="ttitle"><a class="Alink" href="https://poloniex.com/">폴로닉스(USD)</a></th>
-        <tr><!-- 첫 번째 내용 줄 시작 -->
-            <th class="ttitle">BTC(비트코인)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_pbtc"></div></td>
-            <td class="tcontents"><div class="ubt_pbtc"></div></td>
-            <td class="tcontents"><div class="pol_pbtc"></div></td>
-        </tr>
-        <tr>
-            <th class="ttitle">ETH(이더리움)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_peth"></div></td>
-            <td class="tcontents"><div class="ubt_peth"></div></td>
-            <td class="tcontents"><div class="pol_peth"></div></td>
-        </tr>
-        <tr>
-            <th class="ttitle">LTC(라이트코인)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_pltc"></div></td>
-            <td class="tcontents"><div class="ubt_pltc"></div></td>
-            <td class="tcontents"><div class="pol_pltc"></div></td>
-        </tr>
-        <tr>
-            <th class="ttitle">LINK(체인링크)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_plink"></div></td>
-            <td class="tcontents"><div class="ubt_plink"></div></td>
-            <td class="tcontents"><div class="pol_plink"></div></td>
-        </tr>
-        <tr>
-            <th class="ttitle">DOT(폴카닷)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_pdot"></div></td>
-            <td class="tcontents"><div class="ubt_pdot"></div></td>
-            <td class="tcontents"><div class="pol_pdot"></div></td>
-        </tr>
-        <tr>
-            <th class="ttitle">EOS(이오스)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_peos"></div></td>
-            <td class="tcontents"><div class="ubt_peos"></div></td>
-            <td class="tcontents"><div class="pol_peos"></div></td>
-        </tr>
-        <tr>
-            <th class="ttitle">XRP(리플)<br><a class="text1">고가/저가</a></th>
-            <td class="tcontents"><div class="bth_pxrp"></div></td>
-            <td class="tcontents"><div class="ubt_pxrp"></div></td>
-            <td class="tcontents"><div class="pol_pxrp"></div></td>
-        </tr>
-    </table>
+    <object type="text/html" class="api_frame" data="/api">API Loading</object>
+
+    <div class="c_cal">
+        <div class="curr2" id="cur_hidden"></div>
+        <table class="cur_cal_tb">
+            <tr>
+                <td colspan="2"><input type="text" id="krw"></input><button onclick="cal()" type="submit">계산</button>&nbsp;&nbsp;<label class="curr"></label></td>
+            </tr>
+            <tr>
+                <td><label>입력 값(KRW) :</label><label id="result_pannel1"></label>&nbsp;&nbsp;</td>
+                <td><label>/ 환산 값(USD) :</label><label id="result_pannel2"></label></td> <!-- 아이디 명명시 중복/기존변수명 주의-->
+            </tr>
+        </table>
+    </div>
 </div>
 </tbody>
 {% endblock %}

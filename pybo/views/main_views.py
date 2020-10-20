@@ -23,6 +23,9 @@ def connect_data():
 def hello_pybo():
     return 'Hello,Pybo'
 
+@bp.route('/api')
+def api_loading():
+    return render_template('sub_api.html')
 
 @bp.route('/')
 def loot():
