@@ -22,7 +22,7 @@
   outline-color: grey; */
   /* border-style: groove; */
   font-size: 17px;
-  height: 600px;
+  height: 500px;
   background-color: whitesmoke;
   overflow: auto;
 
@@ -48,6 +48,9 @@ button {
 .tab_menu_btn:hover {
   color: black;
   /* color:#df0000;  원래 컬러*/
+}
+.box_int{
+text-align: center;
 }
 .tab_box {
   display:none;

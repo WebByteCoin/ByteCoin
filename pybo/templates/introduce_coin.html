@@ -1,0 +1,95 @@
+{% extends 'pro.html' %}
+{% block content %}
+    <thead>
+        <link rel="stylesheet" href="{{ url_for('static', filename='introduce.css') }}">
+        <script src="{{ url_for('static',filename='introduce.js')}}"></script>
+    </thead>
+    <div class="all">
+        <div class="tab_menu_container">
+        <button class="tab_menu_btn on" type="button">비트코인</button>
+        <button class="tab_menu_btn" type="button">이더리움</button>
+        <button class="tab_menu_btn" type="button">리플</button>
+        <button class="tab_menu_btn" type="button">라이트</button>
+        <button class="tab_menu_btn" type="button">이오스</button>
+        </div>
+        <div class="tab_wrap">
+            <div class="tab_box_container">
+                <div class="tab_box on">
+                    <div class="box_int">
+                        <img src="../static/img/bitcoin.jpg" alt="bit" width="390px" height="200px">
+                        <hr>
+                        <p>명칭 : 비트코인(Bitcoin)</p>
+                        <p>ISO 4217코드 : BTC (비표준), XBT (비공식)</p>
+                        <p>도입일 : 2009년 1월 3일</p>
+                        <p>개발자 : 사토시 나카모토</p>
+                        <p>분류 : 암호화폐</p>
+                        <p>발행방식 : PoW(Proof-of-Work, 작업 증명)</p>
+                    </div>
+                    <hr>
+                    <h3>채굴</h3>
+                    비트코인 지갑을 만들고 암호를 풀어야 한다. 일반PC 1대 기준 5년의 시간이 소비된다.
+                    채굴 풀(mining pool)을 사용하면 계산성능 일부를 암호 해독 과정에 보태고, 완료될 시 기여한만큼 나눠받을수
+                     있고 PC의 성능이 좋을수록 더 많은 비트코인을 얻는다. 채굴 풀에 가입 후 프로그램을 다운받아 자기계정에 연동해야 합니다.
+                    <hr>
+                    <h3>특징</h3>
+                    <p>- 자체 강화 방식</p>
+                    <p>- 오프라인 방식</p>
+                    <p>- 양도 가능</p>
+                    <p>- 분할 및 통합 가능</p>
+                    <p>- 익명 지불 가능</p>
+                </div>
+                <div class="tab_box">
+                    <div class="box_int">
+                        <img src="../static/img/ether.jpg" alt="bit" width="390px" height="200px">
+                        <hr>
+                        <p>명칭 : 이더리움(Ethereum)</p>
+                        <p>자체 통화의 기호 : ETH(비공식 ISO 4217 코드)</p>
+                        <p>출범 : 2015년 7월 30일</p>
+                        <p>개발자 : 비탈릭 부테린</p>
+                        <p>분류 : 암호화폐</p>
+                        <p>발행방식 : PoW(Proof-of-Work, 작업 증명) 채굴</p>
+                    </div>
+                    <hr>
+                    <h3>채굴</h3>
+                    이더리움 지갑을 채우기 위해서는 본격적인 채굴작업에 나서야 합니다. 일반PC 한대로 이더리움 암호를 풀기 위해서는
+                    몇년이 걸릴지 모른다. 이것도 마찬가지로 채굴풀을 이용한다. 예전과 달리 블록을 생성하기 위해 필요한 컴퓨팅 블록을
+                    채국하고 기여한만큼 보상을 받는다. 즉 채굴의 난이도가 갈수록 증가해서 개인이 채굴하는 방식으로는 경쟁력이 없어져
+                    협업을 하여 공헌도에 따라 보상을 분배받는 방식이다.
+                    <hr>
+                    <h3>특징</h3>
+                    <p>- 비트코인과 달리 오픈형 플랫폼으로 분산화된 다양한기능</p>
+                    <p>- 프로그래밍 언어로 작성된 모든 종류의 응용 프로그램 독립적 프로토콜</p>
+                    <p>- 스마트 컨트랙트</p>
+                    <p>- GPU 채굴을 기반으로 한 poW방식 채택</p>
+                </div>
+                <div class="tab_box">
+                     <div class="box_int">
+                        <img src="../static/img/polo.jpg" alt="bit" width="390px" height="200px">
+                        <hr>
+                        <p>명칭 : Poloniex(폴로닉스)</p>
+                        <p>운영 : Poloniex, LLC</p>
+                        <p>대표이사 : Tristan D'Agosta</p>
+                        <p>본사 : Wilmington,Delaware, U.S.</p>
+                        <p>상장명 : 비상장</p>
+                    </div>
+                    <hr>
+                    <strong>장점</strong><br>
+                    1. 현시점에서 가장 투자자들에게 지지받는 암호화폐 거래소 중 하나.<br>
+                    2. 비트코인, 이더리움, 모네로, 테더를 기축으로 다양한 알트코인들이 거래된다.<br>
+                    3. 외국 거래소 지만 다양한 알트코인을 취급하고 거래량도 활발하다.<br>
+                    <hr>
+                    <strong>단점</strong><br>
+                    1. 요즘들어 지속된 하락장과 소극적인 신규 코인상장,잦은 접속오류문제로 자본이 Bittrex같은 거래소로 이동됨.<br>
+                    2. 이곳에서 오입금시 티켓을 받는데만 오래걸리고 찾을확률은 거의없다.<br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h3 class="text-center"><a class="link" href="https://poloniex.com" target="_blank">www.poloniex.com</a></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
