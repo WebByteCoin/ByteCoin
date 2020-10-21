@@ -134,6 +134,10 @@ a{
     display: none;
     flex-direction: column;
     align-items: center;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    border-bottom: solid 1px grey;
   }
 
   .navbar_toogle{
@@ -150,7 +154,15 @@ a{
     display: none;
   }
   .navbar_menu.active{
-    display: flex;
+    display: block;
+    position: fixed;
+    z-index: 999;
+    background-color: white;
+    width: 100%;
+  }
+  @keyframes example {
+    from{top: 33px;}
+    to{top:60px;}
   }
   .foot{
     font-size: 11px;
