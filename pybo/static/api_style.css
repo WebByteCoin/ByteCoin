@@ -27,3 +27,7 @@
     background-color: lightgray;
     text-align: center;
 }
+
+.pretext_result, #result_pannel2 {
+	font-weight: bold;
+}
