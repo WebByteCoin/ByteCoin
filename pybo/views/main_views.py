@@ -28,6 +28,10 @@ def hello_pybo():
 def api_loading():
     return render_template('sub_api.html')
 
+@bp.route('/graph')
+def graph_loading():
+    return render_template('charts.html')
+
 @bp.route('/')
 def loot():
     return render_template('api_onworking.html')
