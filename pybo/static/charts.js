@@ -176,3 +176,80 @@ function loadndraw3(){
 loadndraw1();
 loadndraw2();
 loadndraw3();
+
+function formating_kr(vars){
+    vars = Number(vars).toLocaleString();
+    vars = String(vars);
+    return vars;
+}
+
+function chk_rate(prev_price, now_price) {
+    prev_price = Number(prev_price);
+    now_price = Number(now_price);
+    price_rate = (now_price-prev_price)/prev_price*100
+    price_rate = price_rate.toFixed(2);
+    price_rate = String(price_rate);
+    if (now_price > prev_price){
+        return "+"+price_rate+"%";
+    }
+    else{
+        if (now_price == prev_price){
+            return "±0%";
+        }
+        else{
+            return price_rate+"%";
+        }
+    }
+}
+
+function chart_text1() {
+    $.getJSON('https://api.bithumb.com/public/ticker/BTC_KRW', function(data) {
+        var text1 = `${data.data.closing_price}`
+        //var text2 = `${data.data.prev_closing_price}`
+        n_text1 = formating_kr(text1);
+        //n_text2 = chk_rate(text2, text1);
+        //result = "<br>"+"비트코인&nbsp;BTC/KRW<br>"+n_text1+"원<br>"+n_text2;
+        $(".btcprice").html("&nbsp;"+n_text1+"원");
+    });
+    $.getJSON('https://api.bithumb.com/public/transaction_history/BTC_KRW', function(data) {
+        var price6 = `${data.data[6].price}`
+        var price7 = `${data.data[7].price}`   
+        n_price = chk_rate(price6, price7);
+        $(".btcrate").html(n_price);
+    });
+}
+function chart_text2() {
+    $.getJSON('https://api.bithumb.com/public/ticker/ETH_KRW', function(data) {
+        var text1 = `${data.data.closing_price}`
+        //var text2 = `${data.data.prev_closing_price}`
+        n_text1 = formating_kr(text1);
+        //n_text2 = chk_rate(text2, text1);
+        //result = "<br>"+"비트코인&nbsp;BTC/KRW<br>"+n_text1+"원<br>"+n_text2;
+        $(".ethprice").html("&nbsp;"+n_text1+"원");
+    });
+    $.getJSON('https://api.bithumb.com/public/transaction_history/ETH_KRW', function(data) {
+        var price6 = `${data.data[6].price}`
+        var price7 = `${data.data[7].price}`   
+        n_price = chk_rate(price6, price7);
+        $(".ethrate").html(n_price);
+    });
+}
+function chart_text3() {
+    $.getJSON('https://api.bithumb.com/public/ticker/LTC_KRW', function(data) {
+        var text1 = `${data.data.closing_price}`
+        //var text2 = `${data.data.prev_closing_price}`
+        n_text1 = formating_kr(text1);
+        //n_text2 = chk_rate(text2, text1);
+        //result = "<br>"+"비트코인&nbsp;BTC/KRW<br>"+n_text1+"원<br>"+n_text2;
+        $(".ltcprice").html("&nbsp;"+n_text1+"원");
+    });
+    $.getJSON('https://api.bithumb.com/public/transaction_history/LTC_KRW', function(data) {
+        var price6 = `${data.data[6].price}`
+        var price7 = `${data.data[7].price}`   
+        n_price = chk_rate(price6, price7);
+        $(".ltcrate").html(n_price);
+    });
+}
+chart_text1();
+chart_text2();
+chart_text3();
