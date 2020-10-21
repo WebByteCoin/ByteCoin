@@ -26,5 +26,5 @@ function loading() {
         cal_result = formating_us(cal_result);
         document.getElementById("result_pannel1").textContent = formating_us(usd);
         document.getElementById("result_pannel2").textContent = cal_result;
-        console.log(cal_result);
+        // console.log(cal_result);
     };
