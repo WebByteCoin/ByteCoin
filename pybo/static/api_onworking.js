@@ -221,7 +221,7 @@ function loading() {
         text2 = formating_us(text2);
         text21 = formating_us(text21);
         text22 = formating_us(text22);
-        text2 = text2 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text2 = text2 + " ( - )<br>" +"&nbsp;"+ n_text21 + "/" + n_text22 +"&nbsp;";
  
         var text3 = `${data.USDT_LTC.last}`
         var text31 = `${data.USDT_LTC.lowestAsk}` 
@@ -229,7 +229,7 @@ function loading() {
         text3 = formating_us(text3);
         text31 = formating_us(text31);
         text32 = formating_us(text32);
-        text3 = text3 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text3 = text3 + " ( - )<br>" +"&nbsp;"+ n_text31 + "/" + n_text32 +"&nbsp;";
 
         var text4 = `${data.USDT_LINK.last}`
         var text41 = `${data.USDT_LINK.lowestAsk}` 
@@ -237,7 +237,7 @@ function loading() {
         text4 = formating_us(text4);
         text41 = formating_us(text41);
         text42 = formating_us(text42);
-        text4 = text4 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text4 = text4 + " ( - )<br>" +"&nbsp;"+ n_text41 + "/" + n_text42 +"&nbsp;";
 
         var text5 = `${data.USDT_DOT.last}`
         var text51 = `${data.USDT_DOT.lowestAsk}` 
@@ -245,7 +245,7 @@ function loading() {
         text5 = formating_us(text5);
         text51 = formating_us(text51);
         text52 = formating_us(text52);
-        text5 = text5 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text5 = text5 + " ( - )<br>" +"&nbsp;"+ n_text51 + "/" + n_text52 +"&nbsp;";
 
         var text6 = `${data.USDT_EOS.last}`
         var text61 = `${data.USDT_EOS.lowestAsk}`
@@ -253,7 +253,7 @@ function loading() {
         text6 = formating_us(text6);
         text61 = formating_us(text61);
         text62 = formating_us(text62);
-        text6 = text6 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text6 = text6 + " ( - )<br>" +"&nbsp;"+ n_text61 + "/" + n_text62 +"&nbsp;";
 
         var text7 = `${data.USDT_XRP.last}`
         var text71 = `${data.USDT_XRP.lowestAsk}` 
@@ -261,7 +261,7 @@ function loading() {
         text7 = formating_us(text7);
         text71 = formating_us(text71);
         text72 = formating_us(text72);
-        text7 = text7 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text7 = text7 + " ( - )<br>" +"&nbsp;"+ n_text71 + "/" + n_text72 +"&nbsp;";
 
         $(".pol_pbtc").html(text1);
         $(".pol_peth").html(text2); 
