@@ -27,3 +27,10 @@ class SignupForm(FlaskForm):
 class LoginForm(FlaskForm):
     username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
     password = PasswordField('비밀번호', validators=[DataRequired()])
+
+#회원 정보수정
+class UpdateForm(FlaskForm):
+    password1 = PasswordField('현재 비밀번호', validators=[DataRequired()])
+    password2 = PasswordField('변경할 비밀번호', validators=[
+        DataRequired(), EqualTo('password3', '변경할 비밀번호가 일치하지 않습니다. !')])
+    password3 = PasswordField('변경할 비밀번호 확인', validators=[DataRequired()])
