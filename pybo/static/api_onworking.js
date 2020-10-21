@@ -43,7 +43,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_pbtc").html(result);
     });
     $.getJSON('https://api.bithumb.com/public/ticker/ETH_KRW', function(data) {
@@ -55,7 +55,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_peth").html(result);
     });
     $.getJSON('https://api.bithumb.com/public/ticker/LTC_KRW', function(data) {
@@ -67,7 +67,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_pltc").html(result);
     });
     $.getJSON('https://api.bithumb.com/public/ticker/LINK_KRW', function(data) {
@@ -79,7 +79,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_plink").html(result);
     });
     $.getJSON('https://api.bithumb.com/public/ticker/DOT_KRW', function(data) {
@@ -91,7 +91,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_pdot").html(result);
     });
     $.getJSON('https://api.bithumb.com/public/ticker/EOS_KRW', function(data) {
@@ -103,7 +103,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_peos").html(result);
     });
     $.getJSON('https://api.bithumb.com/public/ticker/XRP_KRW', function(data) {
@@ -115,7 +115,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".bth_pxrp").html(result);
     });
 
@@ -129,7 +129,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_pbtc").html(result);
     });
     $.getJSON('https://api.upbit.com/v1/ticker?markets=KRW-ETH', function(data) {
@@ -141,7 +141,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_peth").html(result);
     });
     $.getJSON('https://api.upbit.com/v1/ticker?markets=KRW-LTC', function(data) {
@@ -153,7 +153,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_pltc").html(result);
     });
     $.getJSON('https://api.upbit.com/v1/ticker?markets=KRW-LINK', function(data) {
@@ -165,7 +165,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_plink").html(result);
     });
     $.getJSON('https://api.upbit.com/v1/ticker?markets=KRW-DOT', function(data) {
@@ -177,7 +177,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_pdot").html(result);
     });
     $.getJSON('https://api.upbit.com/v1/ticker?markets=KRW-EOS', function(data) {
@@ -189,7 +189,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_peos").html(result);
     });
     $.getJSON('https://api.upbit.com/v1/ticker?markets=KRW-XRP', function(data) {
@@ -201,7 +201,7 @@ function loading() {
         n_text11 = formating_kr(text11);
         n_text12 = formating_kr(text12);
         n_text13 = chk_rate(text13, text);
-        result = n_text + " ("+ n_text13 + ")<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        result = n_text + " ("+ n_text13 + ")<br>" + n_text11 + "/" + n_text12;
         $(".ubt_pxrp").html(result);
     });
 
@@ -213,7 +213,7 @@ function loading() {
         text1 = formating_us(text1);
         text11 = formating_us(text11);
         text12 = formating_us(text12);
-        text1 = text1 + " ( - )<br>" +"&nbsp;"+ n_text11 + "/" + n_text12 +"&nbsp;";
+        text1 = text1 + " ( - )<br>" + text11 + "/" + text12;
 
         var text2 = `${data.USDT_ETH.last}`
         var text21 = `${data.USDT_ETH.lowestAsk}`
@@ -221,7 +221,7 @@ function loading() {
         text2 = formating_us(text2);
         text21 = formating_us(text21);
         text22 = formating_us(text22);
-        text2 = text2 + " ( - )<br>" +"&nbsp;"+ n_text21 + "/" + n_text22 +"&nbsp;";
+        text2 = text2 + " ( - )<br>" + text21 + "/" + text22;
  
         var text3 = `${data.USDT_LTC.last}`
         var text31 = `${data.USDT_LTC.lowestAsk}` 
@@ -229,7 +229,7 @@ function loading() {
         text3 = formating_us(text3);
         text31 = formating_us(text31);
         text32 = formating_us(text32);
-        text3 = text3 + " ( - )<br>" +"&nbsp;"+ n_text31 + "/" + n_text32 +"&nbsp;";
+        text3 = text3 + " ( - )<br>" + text31 + "/" + text32;
 
         var text4 = `${data.USDT_LINK.last}`
         var text41 = `${data.USDT_LINK.lowestAsk}` 
@@ -237,7 +237,7 @@ function loading() {
         text4 = formating_us(text4);
         text41 = formating_us(text41);
         text42 = formating_us(text42);
-        text4 = text4 + " ( - )<br>" +"&nbsp;"+ n_text41 + "/" + n_text42 +"&nbsp;";
+        text4 = text4 + " ( - )<br>" + text41 + "/" + text42;
 
         var text5 = `${data.USDT_DOT.last}`
         var text51 = `${data.USDT_DOT.lowestAsk}` 
@@ -245,7 +245,7 @@ function loading() {
         text5 = formating_us(text5);
         text51 = formating_us(text51);
         text52 = formating_us(text52);
-        text5 = text5 + " ( - )<br>" +"&nbsp;"+ n_text51 + "/" + n_text52 +"&nbsp;";
+        text5 = text5 + " ( - )<br>" + text51 + "/" + text52;
 
         var text6 = `${data.USDT_EOS.last}`
         var text61 = `${data.USDT_EOS.lowestAsk}`
@@ -253,7 +253,7 @@ function loading() {
         text6 = formating_us(text6);
         text61 = formating_us(text61);
         text62 = formating_us(text62);
-        text6 = text6 + " ( - )<br>" +"&nbsp;"+ n_text61 + "/" + n_text62 +"&nbsp;";
+        text6 = text6 + " ( - )<br>" + text61 + "/" + text62;
 
         var text7 = `${data.USDT_XRP.last}`
         var text71 = `${data.USDT_XRP.lowestAsk}` 
@@ -261,7 +261,7 @@ function loading() {
         text7 = formating_us(text7);
         text71 = formating_us(text71);
         text72 = formating_us(text72);
-        text7 = text7 + " ( - )<br>" +"&nbsp;"+ n_text71 + "/" + n_text72 +"&nbsp;";
+        text7 = text7 + " ( - )<br>" + text71 + "/" + text72;
 
         $(".pol_pbtc").html(text1);
         $(".pol_peth").html(text2); 
