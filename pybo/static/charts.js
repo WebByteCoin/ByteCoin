@@ -1,18 +1,11 @@
 function loadndraw1(){
     $.getJSON('https://api.bithumb.com/public/transaction_history/BTC_KRW', function(data) {
-    var stamp1 = `${data.data[1].transaction_date}`
     var price1 = `${data.data[1].price}`
-    var stamp2 = `${data.data[2].transaction_date}`
     var price2 = `${data.data[2].price}`
-    var stamp3 = `${data.data[3].transaction_date}`
     var price3 = `${data.data[3].price}`
-    var stamp4 = `${data.data[4].transaction_date}`
     var price4 = `${data.data[4].price}`
-    var stamp5 = `${data.data[5].transaction_date}`
     var price5 = `${data.data[5].price}`
-    var stamp6 = `${data.data[6].transaction_date}`
     var price6 = `${data.data[6].price}`
-    var stamp7 = `${data.data[7].transaction_date}`
     var price7 = `${data.data[7].price}`         
 
         // 여기부턴 차트 그리기 코드
@@ -74,20 +67,13 @@ function loadndraw1(){
 }
 function loadndraw2(){
     $.getJSON('https://api.bithumb.com/public/transaction_history/ETH_KRW', function(data) {
-    var stamp1 = `${data.data[1].transaction_date}`
     var price1 = `${data.data[1].price}`
-    var stamp2 = `${data.data[2].transaction_date}`
     var price2 = `${data.data[2].price}`
-    var stamp3 = `${data.data[3].transaction_date}`
     var price3 = `${data.data[3].price}`
-    var stamp4 = `${data.data[4].transaction_date}`
     var price4 = `${data.data[4].price}`
-    var stamp5 = `${data.data[5].transaction_date}`
     var price5 = `${data.data[5].price}`
-    var stamp6 = `${data.data[6].transaction_date}`
     var price6 = `${data.data[6].price}`
-    var stamp7 = `${data.data[7].transaction_date}`
-    var price7 = `${data.data[7].price}`         
+    var price7 = `${data.data[7].price}`           
 
         var ctx = document.getElementById('myChart2').getContext('2d');
         var chart = new Chart(ctx, {
@@ -135,20 +121,13 @@ function loadndraw2(){
 }
 function loadndraw3(){
     $.getJSON('https://api.bithumb.com/public/transaction_history/LTC_KRW', function(data) {
-    var stamp1 = `${data.data[1].transaction_date}`
     var price1 = `${data.data[1].price}`
-    var stamp2 = `${data.data[2].transaction_date}`
     var price2 = `${data.data[2].price}`
-    var stamp3 = `${data.data[3].transaction_date}`
     var price3 = `${data.data[3].price}`
-    var stamp4 = `${data.data[4].transaction_date}`
     var price4 = `${data.data[4].price}`
-    var stamp5 = `${data.data[5].transaction_date}`
     var price5 = `${data.data[5].price}`
-    var stamp6 = `${data.data[6].transaction_date}`
     var price6 = `${data.data[6].price}`
-    var stamp7 = `${data.data[7].transaction_date}`
-    var price7 = `${data.data[7].price}`         
+    var price7 = `${data.data[7].price}`           
 
         var ctx = document.getElementById('myChart3').getContext('2d');
         var chart = new Chart(ctx, {
