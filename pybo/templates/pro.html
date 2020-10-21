@@ -23,7 +23,7 @@
         <div class="nav_all">
             <div class="navbar_logo">
                 <i class="fab fa-bitcoin"></i>
-                <a href="" class="byte">Byte Coin</a>
+                <a href="" class="byte,m_title">Byte Coin</a>
                 <a href="#" class="navbar_toogle">
                     <i class="fas fa-bars"></i>
                 </a>
@@ -38,21 +38,20 @@
                 {% elif g.user %}
                 <ul class="navbar_smallmenu">
                     <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
-                    <a href="#">사이트</a>
+                    <a href="#">내정보</a>
                 </ul>
                 {% else %}
                 <ul class="navbar_smallmenu">
                     <a href="/auth/login">로그인</a>
                     <a href="/auth/signup">회원가입</a>
-                    <a href="#">사이트</a>
                 </ul>
                 {% endif  %}
             </div>
             <div class="navbar">
                 <div class="navbar_menu">
                     <li><a class="m_title" href="/">코인시세</a></li>
-                    <li><a class="m_title" href="">거래사이트</a></li>
-                    <li><a class="m_title" href="">코인</a></li>
+                    <li><a class="m_title" href="/introduce">거래사이트</a></li>
+                    <li><a class="m_title" href="/introduce_coin">코인</a></li>
                     <li><a class="m_title" href="/question/list">게시판</a></li>
                 </div>
             </div>

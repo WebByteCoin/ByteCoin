@@ -65,3 +65,11 @@ def manage():
     user_list = cur.fetchall()
 
     return render_template('/sign/manage.html', user_list = user_list, lp = total_page,p_page=p_page)
+
+@bp.route('/introduce')
+def introduce():
+    return render_template('introduce.html')
+
+@bp.route('/introduce_coin')
+def introduce_coin():
+    return render_template('introduce_coin.html')
