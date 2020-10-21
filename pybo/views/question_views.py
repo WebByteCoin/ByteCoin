@@ -1,5 +1,5 @@
 # ---------------------------------------- [edit] ---------------------------------------- #
-from flask import Blueprint, render_template  , url_for, request,g
+from flask import Blueprint, render_template  , url_for, request,g , session
 from werkzeug.utils import redirect
 from datetime import datetime
 from .. import db
@@ -18,11 +18,11 @@ def connect_data():
         password="1234",
         host="localhost",
         port=3306,
-        database="d_test"
+        database="dd_test"
     )
     return conn
 
-
+# 질문 목록
 @bp.route('/list/')
 def _list():
     p_page = request.args.get('page',type=int,default=1)
@@ -40,7 +40,7 @@ def _list():
 
     return render_template('question/question_list.html', question_list=question_list, lp = total_page,p_page=p_page)
 
-
+# 질문 상세 페이지
 @bp.route('/detail/')
 def detail():
     q = request.args.get('q',type=int)
@@ -57,6 +57,8 @@ def detail():
 
     return render_template('question/question_detail.html', question=question, form=form, reporter = reporter , answer = answer)
 
+
+# 질문 생성
 @bp.route('/create/', methods=('GET','POST'))
 @login_required
 def create():
@@ -66,7 +68,7 @@ def create():
         cur = conn.cursor()
         cur.execute("SELECT r_id FROM reporter WHERE nick_name = '{}'".format(g.user))
         reporter = cur.fetchone()
-        cur.execute("""INSERT INTO d_test.post
+        cur.execute("""INSERT INTO post
 (title, content, reporter, reg_date, pub_date)
 VALUES('{}','{}', {}, current_timestamp(), NULL);""".format(form.subject.data,form.content.data,reporter[0]))
         conn.commit()
@@ -76,3 +78,17 @@ VALUES('{}','{}', {}, current_timestamp(), NULL);""".format(form.subject.data,fo
         # db.session.commit()
         return redirect(url_for('question._list'))
     return render_template('question/question_form.html', form=form)
+
+# 게시글 삭제
+@bp.route('/delete')
+def post_delete():
+    user_id = session.get('user_id')
+    if user_id == "admin":
+        p_id = request.args.get('p_id', type=int)
+        conn = connect_data()
+        cur = conn.cursor()
+        cur.execute("DELETE FROM post WHERE p_id = {}".format(p_id))
+        conn.commit()
+
+        return redirect(url_for('question._list'))
+    return redirect(url_for('question._list'))

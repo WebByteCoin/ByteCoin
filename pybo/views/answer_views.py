@@ -16,11 +16,12 @@ def connect_data():
         password="1234",
         host="localhost",
         port=3306,
-        database="d_test"
+        database="dd_test"
     )
     return conn
 
 
+#답변 생성
 @bp.route('/create/<int:question_id>', methods=('POST',))
 @login_required
 def create(question_id):
@@ -33,7 +34,7 @@ def create(question_id):
         print(question_id,content,g.user,datetime.now())
         cur.execute("SELECT r_id FROM reporter WHERE nick_name = '{}' ".format(g.user))
         reporter = cur.fetchone()
-        cur.execute("""INSERT INTO d_test.answer
+        cur.execute("""INSERT INTO answer
 (p_id, content, reporter, reg_date, pub_date)
 VALUES({}, '{}', {}, current_timestamp(), NULL);""".format(question_id,content,reporter[0]))
         conn.commit()

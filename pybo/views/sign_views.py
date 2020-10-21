@@ -16,10 +16,12 @@ def connect_data():
         password="1234",
         host="localhost",
         port=3306,
-        database="d_test"
+        database="dd_test"
     )
     return conn
 
+
+# 회원가입
 @bp.route('/signup/', methods=('GET', 'POST'))
 def signup():
     form = SignupForm()
@@ -32,7 +34,7 @@ def signup():
         if data == []:
             conn = connect_data()
             cur = conn.cursor()
-            sql = "INSERT INTO d_test.reporter(nick_name,pw,email,phone) VALUES('{}','{}','{}','{}'); ".format(form.username.data,
+            sql = "INSERT INTO reporter(nick_name,pw,email,phone) VALUES('{}','{}','{}','{}'); ".format(form.username.data,
             userpw,form.email.data,form.phone.data)
             cur.execute(sql)
             conn.commit()
@@ -44,6 +46,7 @@ def signup():
 
 
 
+# 로그인
 @bp.route('/login/', methods=('GET','POST'))
 def login():
     form = LoginForm()
@@ -83,6 +86,7 @@ def load_logged_in_user():
         g.user = user_id
 
 
+# 로그아웃 (세션 초기화)
 @bp.route('/logout/')
 def logout():
     session.clear()

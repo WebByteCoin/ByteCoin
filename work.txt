@@ -55,15 +55,15 @@ CREATE TABLE answer
 
 ALTER TABLE post
     ADD CONSTRAINT FK_post_reporter_reporter_r_id FOREIGN KEY (reporter)
-        REFERENCES reporter (r_id) ON DELETE CASCADE ON UPDATE RESTRICT;
+        REFERENCES reporter (r_id) ON DELETE CASCADE ON UPDATE CASCADE;
        
 ALTER TABLE answer
-	ADD CONSTRAINT FK_answer_p_id_post_p_id FOREIGN KEY (p_id)
-		REFERENCES post (p_id) ON DELETE CASCADE;
+    ADD CONSTRAINT FK_answer_p_id_post_p_id FOREIGN KEY (p_id)
+        REFERENCES post (p_id) ON DELETE CASCADE ON UPDATE CASCADE;
 	
 ALTER TABLE answer 
-	ADD CONSTRAINT FK_answer_reporter_reporter_r_id FOREIGN KEY (reporter)
-		REFERENCES reporter (r_id) ON DELETE CASCADE;
+    ADD CONSTRAINT FK_answer_reporter_reporter_r_id FOREIGN KEY (reporter)
+        REFERENCES reporter (r_id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 <플라스크>
 파이참 실행후 프로젝트폴더 불러온후에 터미널에서 myproject.cmd 입력

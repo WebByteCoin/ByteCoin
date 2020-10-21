@@ -18,6 +18,9 @@
                     <td><a href="/question/detail?q={{question[0]}}">{{ question[1]}}</a></td>
                     <td>{{ question[3]}}</td>
                     <td>{{ question[4]}}</td>
+                    {% if g.user == 'admin' %}
+                    <td><a href="/question/delete?p_id={{ question[0] }}">삭제</a></td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             {% else %}
@@ -26,30 +29,10 @@
             </tr>
             {% endif %}
             </tbody>
-<!--        <tbody>-->
-<!--        {% if question_list %}-->
-<!--        {% for question in question_list.items %}-->
-<!--        <tr class="text-center">-->
-<!--            <td>{{ question_list.total - ((question_list.page-1) * question_list.per_page) - loop.index0 }}</td>-->
-<!--            <td class="text-left">-->
-<!--                <a href="{{ url_for('question.detail', question_id=question.id) }}">{{ question[0] }}</a>-->
-<!--&lt;!&ndash;                {% if question.answer_set|length > 0 %}&ndash;&gt;-->
-<!--&lt;!&ndash;                <span class="text-danger small ml-2">{{ question.answer_set|length }}</span>&ndash;&gt;-->
-<!--&lt;!&ndash;                {% endif %}&ndash;&gt;-->
-<!--            </td>-->
-<!--            <td>{{ question[3] }}</td>-->
-<!--            <td>{{ question[4]|datetime }}</td>-->
-<!--        </tr>-->
-<!--        {% endfor %}-->
-<!--        {% else %}-->
-<!--        <tr>-->
-<!--            <td colspan="3">질문이 없습니다.</td>-->
-<!--        </tr>-->
-<!--        {% endif %}-->
 
-<!--        </tbody>-->
 
     </table>
+<!--    페이징    -->
     <ul class ="pagination justify-content-center">
         {% for page_num in range(1,lp) %}
             {% if page_num %}

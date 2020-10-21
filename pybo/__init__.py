@@ -37,10 +37,11 @@ def create_app():
     app.jinja_env.filters['datetime'] = format_datetime
 
     #블루프린트
-    from .views  import main_views, answer_views , question_views, sign_views
+    from .views  import main_views, answer_views , question_views, sign_views, manage_views
     app.register_blueprint(main_views.bp)
     app.register_blueprint(answer_views.bp)
     app.register_blueprint(question_views.bp)
     app.register_blueprint(sign_views.bp)
+    app.register_blueprint(manage_views.bp)
 
     return app

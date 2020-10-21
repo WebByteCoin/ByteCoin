@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='pro.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
     <!-- added_style.css는 로그인과 회원가입 관련 css 파일로 nav와 혹시라도 충돌 시 주석처리하면 롤백됩니다. -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='added_style.css') }}">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='added_style.css') }}">-->
     <title>Byte Coin</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
                 {% elif g.user %}
                 <ul class="navbar_smallmenu">
                     <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
-                    <a href="#">내정보</a>
+                    <a href="/information?nick={{ g.user }}">내정보</a>
                 </ul>
                 {% else %}
                 <ul class="navbar_smallmenu">
