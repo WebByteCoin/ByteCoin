@@ -255,7 +255,7 @@ function timeset(){
     chart_text2();
     chart_text3();
 
-    setTimeout('location.reload()',15000); //15초마다 페이지 새로고침, 10000은 10초임.
+    //setTimeout('location.reload()',15000); //15초마다 페이지 새로고침, 10000은 10초임.
 }
 
 timeset();

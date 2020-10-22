@@ -272,7 +272,7 @@ function loading() {
         $(".pol_pxrp").html(text7);  
     });
     // 페이지 새로 고침
-    setTimeout('location.reload()',30000); //30초마다 페이지 새로고침, 10000은 10초임.
+    //setTimeout('location.reload()',30000); //30초마다 페이지 새로고침, 10000은 10초임.
 }
 
 //함수 호출
