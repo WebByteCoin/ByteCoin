@@ -26,6 +26,7 @@ function timeset(){
             },
             //옵션 https://www.chartjs.org/samples/latest/scales/gridlines-display.html 참조
             options: {
+                maintainAspectRatio: false, //차트높이div구속(출처: https://surhommejk.tistory.com/421)
                 labels: {
                     display: false,
                 },
@@ -48,10 +49,10 @@ function timeset(){
                             stepSize: 0
                         },
                         ticks: {    //dataset값(y축) 스케일(눈금) 조절, x축은 라벨임.
-                            display: false
+                            display: false,
                             //min: 0, //눈금 최대 값
-                            //max: 100, //눈금 최소 값
-                            //stepSize: 10 //눈금 간격
+                            //max: 10, //눈금 최소 값
+                            //stepSize: 1 //눈금 간격
                         }
                     }]
                 },
@@ -89,6 +90,7 @@ function timeset(){
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 labels: {
                     display: false,
                 },
@@ -109,7 +111,7 @@ function timeset(){
                             stepSize: 0
                         },
                         ticks: {
-                            display: false
+                            display: false,
                         }
                     }]
                 },
@@ -143,6 +145,7 @@ function timeset(){
                 }]
             },
             options: {
+                maintainAspectRatio: false,
                 labels: {
                     display: false,
                 },
@@ -163,7 +166,7 @@ function timeset(){
                             stepSize: 0
                         },
                         ticks: { 
-                            display: false
+                            display: false,
                         }
                     }]
                 },
