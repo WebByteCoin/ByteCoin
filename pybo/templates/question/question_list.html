@@ -8,13 +8,14 @@
             <th style="width:50%">제목</th>
             <th>작성자</th>
             <th>작성일시</th>
+            <th></th>
         </tr>
         </thead>
             <tbody>
             {% if question_list %}
                 {% for question in question_list %}
                 <tr class="text-center">
-                    <td>{{ question[0]}}<div>1</div></td>
+                    <td>{{ question[0]}}</td>
                     <td><a href="/question/detail?q={{question[0]}}">{{ question[1]}}</a></td>
                     <td>{{ question[3]}}</td>
                     <td>{{ question[4]}}</td>
@@ -52,6 +53,15 @@
             {% endif %}
         {% endfor %}
     </ul>
+    <form method="post" class="post-form">
+        {{ form.csrf_token }}
+        <div class="form-group float-left" style="width:200px; height:30px;">
+            <label>제목검색</label>
+            <input type="text" class="form-control" name="searchword" id="searchword"
+                   value="{{ form.searchword.data or ''}}">
+            <button type="submit" class="btn btn-primary">검색</button>
+        </div>
+    </form>
 
     <a href="{{ url_for('question.create') }}" class="btn btn-primary" style="float:right;">질문 등록하기</a>
 </div>

@@ -4,7 +4,7 @@ from werkzeug.utils import redirect
 from datetime import datetime
 from .. import db
 from ..models import Question
-from ..form import QuestionForm, AnswerForm
+from ..form import QuestionForm, AnswerForm ,SearchForm
 from pybo.views.sign_views import login_required
 import mariadb
 import sys
@@ -23,11 +23,29 @@ def connect_data():
     return conn
 
 # 질문 목록
-@bp.route('/list/')
+@bp.route('/list/', methods=('GET','POST'))
 def _list():
+    form = SearchForm()
+
     p_page = request.args.get('page',type=int,default=1)
     per_page = 10
     limit = (p_page - 1) * 10
+    #POST 방식으로 호출되었다면 입력받은 단어를 검색
+    if request.method == 'POST' and form.validate_on_submit():
+        word = form.searchword.data
+        conn = connect_data()
+        cur = conn.cursor()
+        cur.execute("""SELECT count(*) 
+        FROM post  
+        WHERE content LIKE '%{}%';""".format(word))
+        total_cnt = len(cur.fetchall())
+        total_page = round(total_cnt/per_page) + 2
+        cur.execute("""SELECT p.p_id, p.title , p.content, r.nick_name, p.reg_date 
+                FROM post as p 
+                RIGHT JOIN reporter as r 
+                ON p.content LIKE '%{}%' ORDER BY p_id DESC limit {},10;""".format(word, limit))
+        question_list = cur.fetchall()
+        return render_template('question/question_list.html', question_list=question_list, lp = total_page, p_page=p_page, form = form)
 
     conn = connect_data()
     cur = conn.cursor()
@@ -38,7 +56,7 @@ def _list():
     question_list = cur.fetchall()
 
 
-    return render_template('question/question_list.html', question_list=question_list, lp = total_page,p_page=p_page)
+    return render_template('question/question_list.html', question_list=question_list, lp = total_page,p_page=p_page, form=form)
 
 # 질문 상세 페이지
 @bp.route('/detail/')
@@ -92,3 +110,4 @@ def post_delete():
 
         return redirect(url_for('question._list'))
     return redirect(url_for('question._list'))
+
