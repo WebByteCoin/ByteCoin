@@ -24,13 +24,13 @@ def connect_data():
 def hello_pybo():
     return 'Hello,Pybo'
 
-@bp.route('/api')
-def api_loading():
-    return render_template('sub_api.html')
+# @bp.route('/api')
+# def api_loading():
+#     return render_template('sub_api.html')
 
-@bp.route('/graph')
-def graph_loading():
-    return render_template('chart_test.html')
+# @bp.route('/graph')
+# def graph_loading():
+#     return render_template('chart_test.html')
 
 @bp.route('/')
 def loot():

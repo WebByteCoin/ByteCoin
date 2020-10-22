@@ -3,20 +3,159 @@
 {% extends 'pro.html' %}
 {% block content %}
 <thead>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="{{ url_for('static',filename='api_onworking.js')}}"></script>
 <script src="{{ url_for('static',filename='currency_cal.js')}}"></script>
+<script src="{{ url_for('static',filename='charts.js')}}"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<!-- 
 <link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='api_style.css') }}">
+ -->
 
 </thead>
 <tbody>
+    <!-- 스타일을 지우면 그래프 모양이 깨져서 일단은 살려뒀습니다~ 옆에 주석꼬리를 /style뒤에 붙이면 간편히 사라집니다ㅎ -->
+    <style>
+        .chart_text, .chart_text:hover {
+            width: wrap;
+            display: inline;
+            text-align: center;
+            margin: 30%;
+        }
+        .container_temp {
+            width: wrap;
+            height: wrap;
+            max-width: 300px;
+        }
+        .small_text {
+            font-size: xx-small;
+            color: lightgray;
+        }
+        .btcrate, .ethrate, .ltcrate {
+            font-size: small;
+            color: whitesmoke;
+            background-color: lightsalmon;
+            display: inline-block;
+            position: relative;
+            text-align: left;
+        }
+        .btcprice, .ethprice, .ltcprice {
+            color: lightsalmon;
+            text-align: left;
+            display: inline-block;
+        }
+        .chart_text1, .chart_text2, .chart_text3 {
+            position: absolute;
+            margin-top: -130px;
+            text-align: center;
+            width: 200px;
+        }
+        #cur_hidden {
+            display: none;
+        }
+    </style>
+
 <div class="container my-4">
+    <!-- 
     <object class="graph_frame" data="/graph">Graph Loading</object>
     <object type="text/html" class="api_frame" data="/api">API Loading</object>
+     -->
+    <div class="graph_object">
+        <table>
+            <tr>
+                <td>
+                    <a href="http://bytecoin.site">
+                        <div class="container_temp">
+                        <div class="chart1"><canvas id="myChart1"><!--비트코인--></canvas></div>
+                        <div class="chart_text1"><dl class="chart_text">
+                            <dt><a>비트코인</a><span class="small_text">BTC/KRW</span></dt>
+                            <dd class="onebox"><div class="btcrate"></div><div class="btcprice"></div>
+                        </dd>
+                        </dl></div>
+                        </div>
+                    </a>
+                </td>
+                <td>
+                    <a href="http://bytecoin.site">
+                        <div class="container_temp">
+                        <div class="chart2"><canvas id="myChart2"><!--이더리움--></canvas></div>
+                        <div class="chart_text2"><dl class="chart_text">
+                            <dt><a>이더리움</a><span class="small_text">ETH/KRW</span></dt>
+                            <dd class="onebox"><div class="ethrate"></div><div class="ethprice"></div></dd>
+                        </dl></div>
+                        </div>
+                    </a>
+                </td>
+                <td id="hidden_in_mobile">
+                    <a href="http://bytecoin.site">
+                        <div class="container_temp">
+                        <div class="chart3"><canvas id="myChart3"><!--라이트코인--></canvas></div>
+                        <div class="chart_text3"><dl class="chart_text">
+                            <dt><a>라이트코인</a><span class="small_text">LTC/KRW</span></dt>
+                            <dd class="onebox"><div class="ltcrate"></div><div class="ltcprice"></div></dd>
+                        </dl></div>
+                        </div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="api_table_object">
+        <table class="api_table">
+            <th class="ttitle">코인명/거래소</th>
+            <th class="ttitle"><a class="Alink" href="https://www.bithumb.com/">빗썸(KRW)</a></th>
+            <th class="ttitle"><a class="Alink" href="https://upbit.com/">업비트(KRW)</a></th>
+            <th class="ttitle"><a class="Alink" href="https://poloniex.com/">폴로닉스(USD)</a></th>
+            <tr><!-- 첫 번째 내용 줄 시작 -->
+                <th class="ttitle">BTC(비트코인)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_pbtc"></div></td>
+                <td class="tcontents"><div class="ubt_pbtc"></div></td>
+                <td class="tcontents"><div class="pol_pbtc"></div></td>
+            </tr>
+            <tr>
+                <th class="ttitle">ETH(이더리움)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_peth"></div></td>
+                <td class="tcontents"><div class="ubt_peth"></div></td>
+                <td class="tcontents"><div class="pol_peth"></div></td>
+            </tr>
+            <tr>
+                <th class="ttitle">LTC(라이트코인)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_pltc"></div></td>
+                <td class="tcontents"><div class="ubt_pltc"></div></td>
+                <td class="tcontents"><div class="pol_pltc"></div></td>
+            </tr>
+            <tr>
+                <th class="ttitle">LINK(체인링크)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_plink"></div></td>
+                <td class="tcontents"><div class="ubt_plink"></div></td>
+                <td class="tcontents"><div class="pol_plink"></div></td>
+            </tr>
+            <tr>
+                <th class="ttitle">DOT(폴카닷)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_pdot"></div></td>
+                <td class="tcontents"><div class="ubt_pdot"></div></td>
+                <td class="tcontents"><div class="pol_pdot"></div></td>
+            </tr>
+            <tr>
+                <th class="ttitle">EOS(이오스)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_peos"></div></td>
+                <td class="tcontents"><div class="ubt_peos"></div></td>
+                <td class="tcontents"><div class="pol_peos"></div></td>
+            </tr>
+            <tr>
+                <th class="ttitle">XRP(리플)<br><a class="text1">고가/저가</a></th>
+                <td class="tcontents"><div class="bth_pxrp"></div></td>
+                <td class="tcontents"><div class="ubt_pxrp"></div></td>
+                <td class="tcontents"><div class="pol_pxrp"></div></td>
+            </tr>
+        </table>
+    </div>
 
     <div><br></div>
     <div class="c_cal">
-        <div class="curr2" id="cur_hidden"></div>
         <table class="cur_cal_tb">
             <tr>
                 <td colspan="2"><input type="text" id="usd"></input><button onclick="cal()" type="submit">계산</button>&nbsp;&nbsp;<label class="curr"></label></td>
@@ -26,6 +165,7 @@
                 <td>/&nbsp;<label class="pretext_result"> 환산 값(KRW)&nbsp;:&nbsp;</label><label id="result_pannel2"></label></td> <!-- 아이디 명명시 중복/기존변수명 주의-->
             </tr>
         </table>
+        <div class="curr2" id="cur_hidden"></div>
     </div>
 </div>
 </tbody>
