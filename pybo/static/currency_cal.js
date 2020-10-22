@@ -1,7 +1,7 @@
 function loading() {
     $.getJSON('https://api.manana.kr/exchange/rate/KRW/USD.json', function(data) {
         var text = `${data[0].rate}`
-        result = "(1$ = "+text+" KRW)"
+        result ="계산 (환율 :"+text+")"
         $(".curr").html(result);
         $(".curr2").html(text);
     });
