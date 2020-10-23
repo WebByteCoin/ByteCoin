@@ -7,7 +7,6 @@
 <div class="login-form">
     <div class="table table-responsive">
         <table class="table">
-            <tr><td></td><td></td></tr>
             <tr class="text-center font-weight-bold">
                 <td class="table-active">아이디</td>
                 <td class="table-light">{{ user[0] }}</td>
@@ -20,6 +19,9 @@
                 <td class="font-weight-bold table-active">전화번호</td>
                 <td class="table-light">{{ user[2] }}</td>
             </tr>
+            <tr><td></td><td></td></tr>
+        </table>
+        <table class="table">
             <form method="post" class="post-form">
                 {{ form.csrf_token }}
                 {% include "form_errors.html" %}
