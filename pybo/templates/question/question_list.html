@@ -44,16 +44,16 @@
             {% if page_num %}
                 {% if page_num != p_page %}
                 <li class="page-item">
-                    <a class="page-link bg-light border-light text-dark rounded-0" href="?page={{page_num}}">{{page_num}}</a>
+                    <a class="page-link bg-light border-light text-dark rounded-0 shadow-none" href="?page={{page_num}}">{{page_num}}</a>
                 </li>
                 {% else %}
                 <li class="page-item active" aria-current="page">
-                    <a class="page-link bg-secondary border-secondary text-white rounded-0" href="#">{{page_num}}</a>
+                    <a class="page-link bg-secondary border-secondary text-white rounded-0 shadow-none" href="#">{{page_num}}</a>
                 </li>
                 {% endif %}
             {% else %}
                 <li class="disabled">
-                    <a class="page-link bg-secondary border-secondary text-white rounded-0" href="#">...</a>
+                    <a class="page-link bg-secondary border-secondary text-white rounded-0 shadow-none" href="#">...</a>
                 </li>
             {% endif %}
         {% endfor %}
