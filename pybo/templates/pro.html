@@ -22,10 +22,10 @@
     <nav>
         <div class="nav_all">
             <div class="navbar_logo">
-               <a href="">
-                   <img class="w" src="../static/img/logo7.png" alt="logo" width="400px" height="80px">
-                   <img class="b" src="../static/img/logo_b.png" alt="logo" width="400px" height="80px">
-               </a>
+                <div>
+                   <a href="/"><img class="w" src="../static/img/logo7.png" alt="logo" width="400px" height="80px"></a>
+                   <a href="/"><img class="b" src="../static/img/logo_b.png" alt="logo" width="400px" height="80px"></a>
+                </div>
                 <a href="#" class="navbar_toogle">
                     <i class="fas fa-bars"></i>
                 </a>
@@ -34,18 +34,18 @@
                 </a>
                     {% if g.user and g.user == "admin" %}
                 <ul class="navbar_smallmenu">
-                    <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
-                    <a href="/manage">회원 관리</a>
+                    <a class="text-decoration-none text-dark float-right" href="/auth/logout">{{ g.user }}(로그아웃)</a>
+                    <a class="text-decoration-none text-dark float-right" href="/manage">회원 관리</a>
                 </ul>
                 {% elif g.user %}
                 <ul class="navbar_smallmenu">
-                    <a href="/auth/logout">{{ g.user }}(로그아웃)</a>
-                    <a href="/information?nick={{ g.user }}">내정보</a>
+                    <a class="text-decoration-none text-dark float-right" href="/auth/logout">{{ g.user }}(로그아웃)</a>
+                    <a class="text-decoration-none text-dark float-right" href="/information?nick={{ g.user }}">내정보</a>
                 </ul>
                 {% else %}
                 <ul class="navbar_smallmenu">
-                    <a href="/auth/login" style="color:black;">로그인</a>
-                    <a href="/auth/signup" style="color:black;">회원가입</a>
+                    <a class="text-decoration-none text-dark float-right" href="/auth/login" style="color:black;">로그인</a>
+                    <a class="text-decoration-none text-dark float-right" href="/auth/signup" style="color:black;">회원가입</a>
                 </ul>
                 {% endif  %}
             </div>
@@ -55,6 +55,7 @@
                     <li><a class="text-decoration-none" href="/introduce">거래사이트</a></li>
                     <li><a class="text-decoration-none" href="/introduce_coin">코인</a></li>
                     <li><a class="text-decoration-none" href="/question/list">게시판</a></li>
+                    <li><a class="text-decoration-none" href="/question/list">소개</a></li>
                 </div>
             </div>
         </div>
