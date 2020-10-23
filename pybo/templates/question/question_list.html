@@ -8,6 +8,9 @@
             <th style="width:50%">제목</th>
             <th>작성자</th>
             <th>작성일시</th>
+            {% if g.user == 'admin' %}
+            <th>관리</th>
+            {% endif %}
             <!-- admin 로그인일때는 아래 코드를 넣어야 표가 보기 좋은데, 일반회원 기준은 없는게 맞네요 
             <th></th>
              -->
