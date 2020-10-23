@@ -42,8 +42,9 @@ def _list():
         total_page = round(total_cnt/per_page) + 2
         cur.execute("""SELECT p.p_id, p.title , p.content, r.nick_name, p.reg_date 
                 FROM post as p 
-                RIGHT JOIN reporter as r 
-                ON p.content LIKE '%{}%' ORDER BY p_id DESC limit {},10;""".format(word, limit))
+                LEFT JOIN reporter as r 
+                ON p.reporter = r.r_id
+                WHERE p.content LIKE '%{}%' ORDER BY p_id DESC limit {},10;""".format(word, limit))
         question_list = cur.fetchall()
         return render_template('question/question_list.html', question_list=question_list, lp = total_page, p_page=p_page, form = form)
 
