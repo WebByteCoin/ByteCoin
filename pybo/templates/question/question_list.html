@@ -3,7 +3,7 @@
 <div class="container my-3 table-responsive">
     <table class="table table-hover">
         <thead>
-        <tr class="text-center thead-light font-weight-bold text-wrap">
+        <tr class="text-center badge-secondary font-weight-bold text-wrap"> <!--thead-light-->
             <th>번호</th>
             <th style="width:50%">제목</th>
             <th>작성자</th>
@@ -41,16 +41,16 @@
             {% if page_num %}
                 {% if page_num != p_page %}
                 <li class="page-item">
-                    <a class="page-link bg-secondary  border-secondary text-white" href="?page={{page_num}}">{{page_num}}</a>
+                    <a class="page-link bg-secondary border-secondary text-white rounded-0" href="?page={{page_num}}">{{page_num}}</a>
                 </li>
                 {% else %}
                 <li class="page-item active" aria-current="page">
-                    <a class="page-link bg-secondary border-secondary text-white" href="#">{{page_num}}</a>
+                    <a class="page-link bg-secondary border-secondary text-white rounded-0" href="#">{{page_num}}</a>
                 </li>
                 {% endif %}
             {% else %}
                 <li class="disabled">
-                    <a class="page-link bg-secondary border-secondary text-white" href="#">...</a>
+                    <a class="page-link bg-secondary border-secondary text-white rounded-0" href="#">...</a>
                 </li>
             {% endif %}
         {% endfor %}
@@ -62,13 +62,13 @@
             <!-- 
             <label>제목검색</label>
              -->
-            <input type="text" placeholder="제목 검색" class="form-control" name="searchword" id="searchword"
+            <input type="text" placeholder="제목 검색" class="form-control shadow-none border-secondary rounded-0" name="searchword" id="searchword"
                    value="{{ form.searchword.data or ''}}">
-            <button type="submit" class="btn btn-secondary">검색</button>
+            <button type="submit" class="btn btn-secondary rounded-0">검색</button>
             </div>
         </div>
     </form>
 
-    <a href="{{ url_for('question.create') }}" class="btn btn-secondary" style="float:right;">질문 등록하기</a>
+    <a href="{{ url_for('question.create') }}" class="btn btn-secondary rounded-0" style="float:right;">질문 등록하기</a>
 </div>
 {% endblock %}
