@@ -4,10 +4,8 @@
 <link rel="stylesheet" href="{{ url_for('static', filename = 'login.css')}}">
 
 <div class="login-form">
-    <table class="table table-responsive table-light rounded-lg shadow">
-        <!-- <td></td> -->
-        <!-- <td> -->
-        <thead>
+    <table class="table table-responsive badge-light rounded-lg shadow-lg">
+        <thead style="border-top: hidden;">
         <td></td>
         <td style="min-width: 350px;">
             <table class="table rounded-lg border-secondary">
@@ -23,7 +21,6 @@
                     <td class="font-weight-bold table-active">전화번호</td>
                     <td class="table-light">{{ user[2] }}</td>
                 </tr>
-                <tr><td></td><td></td></tr>
             </table>
             <table class="table">
                 <form method="post" class="post-form">
@@ -77,8 +74,6 @@
         </td>
         <td></td>
         </thead>
-        <!-- </td> -->
-        <!-- <td></td> -->
     </table>
 </div>
 
