@@ -8,6 +8,7 @@ from ..form import QuestionForm, AnswerForm ,SearchForm
 from pybo.views.sign_views import login_required
 import mariadb
 import sys
+import math
 
 
 bp = Blueprint('question', __name__, url_prefix='/question')
@@ -39,7 +40,7 @@ def _list():
         FROM post  
         WHERE content LIKE '%{}%';""".format(word))
         total_cnt = len(cur.fetchall())
-        total_page = round(total_cnt/per_page) + 2
+        total_page = math.floor(total_cnt/per_page) + 2
         cur.execute("""SELECT p.p_id, p.title , p.content, r.nick_name, p.reg_date 
                 FROM post as p 
                 LEFT JOIN reporter as r 
@@ -52,7 +53,7 @@ def _list():
     cur = conn.cursor()
     cur.execute("SELECT count(*) FROM post")
     total_cnt = cur.fetchone()
-    total_page = round(total_cnt[0]/per_page) + 2
+    total_page = math.floor(total_cnt[0]/per_page) + 2
     cur.execute("SELECT p.p_id,p.title,p.content,r.nick_name,p.reg_date FROM post as p LEFT JOIN reporter as r ON p.reporter = r.r_id ORDER BY p_id DESC limit {},10".format(limit))
     question_list = cur.fetchall()
 

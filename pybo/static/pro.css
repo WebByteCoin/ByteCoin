@@ -75,10 +75,10 @@ a{
 }
 .foot {
   position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-	padding: 10px 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0;
   text-align: center;
   background-color: white;
   border-top: 1px solid rgb(206, 206, 206);
@@ -197,18 +197,6 @@ a{
     to{top:63px;}
   }
 
-  .foot{
-     position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-	padding: 10px 0;
-  text-align: center;
-  background-color: white;
-  border-top: 1px solid rgb(206, 206, 206);
-  font-size: 11px;
-  }
-
 
 }
 
@@ -220,17 +208,6 @@ a{
   }
 
 
-  .foot{
-     position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-	padding: 10px 0;
-  text-align: center;
-  background-color: white;
-  border-top: 1px solid rgb(206, 206, 206);
-  font-size: 11px;
-  }
 
 
 }
