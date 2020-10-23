@@ -74,7 +74,7 @@ a{
           transition: all 0.2s ease;
 }
 .foot {
-  position: absolute;
+  position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -102,8 +102,12 @@ a{
   display: none;
 }
 .b{
-  display: flex;
-  margin: auto;
+  position: absolute;
+  display: block;
+  color: white;
+  font-size: 20px;
+  left: 240px;
+
 }
 
 .navbar_menu li a:before, .navbar_menu li a:after{
@@ -134,6 +138,8 @@ a{
   .navbar_logo{
     position: relative;
     background-color:rgb(18, 18, 18);
+    height:60px;
+    padding:0;
   }
   .navbar_logo img{
     width: 50%;
@@ -161,14 +167,14 @@ a{
 
   .navbar_toogle{
     position: absolute;
-    top: 30%;
+    top: 15%;
     display: block;
     color: white;
     font-size: 30px
   }
   .nav_img{
     position: absolute;
-    top: 27%;
+    top: 15%;
     display: block;
     font-size: 30px
 
@@ -192,7 +198,7 @@ a{
   }
 
   .foot{
-     position: absolute;
+     position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
