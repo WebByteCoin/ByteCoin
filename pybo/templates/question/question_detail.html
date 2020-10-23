@@ -36,8 +36,10 @@
         <div class="form-group">
             <textarea {% if not g.user %}disabled{% endif %}
                     name="content" placeholder="답변" id="content" class="form-control" rows="10"></textarea>
+            <br>
+            <input type="submit" value="답변등록" class="btn btn-secondary float-right">
         </div>
-        <input type="submit" value="답변등록" class="btn btn-secondary">
+        <div><br></div>
     </form>
 </div>
 {% endblock %}
