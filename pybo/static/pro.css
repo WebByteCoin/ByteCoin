@@ -110,9 +110,7 @@ a{
 
 }
 .foot {
-  position: relative;
-  left: 0;
-  bottom: 0;
+  position: absolute;
   width: 100%;
   padding: 10px 0;
   text-align: center;

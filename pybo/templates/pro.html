@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=640,user-scalable=no">
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='ffff.css') }}">
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">-->
     <link rel="stylesheet" href="{{ url_for('static', filename='pro.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='base_style.css') }}">
     <!-- added_style.css는 로그인과 회원가입 관련 css 파일로 nav와 혹시라도 충돌 시 주석처리하면 롤백됩니다. -->
@@ -14,7 +15,7 @@
     <script src="https://kit.fontawesome.com/48c2f0e0c8.js" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{ url_for('static',filename='nav.js')}}"defer></script>
-    <title>Byte Coin</title>
+
 
 
 </head>
@@ -62,15 +63,18 @@
     </nav>
 {% block content %}
 {% endblock %}
-</body>
-<div>
-    <div>
-        <div class="foot">
+
+
+
+
+<div class="foot">
             BYTE COIN | 팀장 : 권태준<br>
             전화번호 : 010-2593-9506 | 팀원: 김혜은 김휘람 <br>
             본 사이트에서 제공되는 모든 정보는 투자판단의 참고자료이며 서비스 이용에 따른 최종 책임은 이용자에게 있습니다.<br>
             Copyright (c) BYTE COIN All Rights Reserved.
-        </div>
-    </div>
 </div>
+
+</body>
+
+
 </html>
