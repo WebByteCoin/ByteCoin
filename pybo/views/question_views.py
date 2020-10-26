@@ -45,7 +45,7 @@ def _list():
                 FROM post as p 
                 LEFT JOIN reporter as r 
                 ON p.reporter = r.r_id
-                WHERE p.content LIKE '%{}%' ORDER BY p_id DESC limit {},10;""".format(word, limit))
+                WHERE p.title LIKE '%{}%' ORDER BY p_id DESC limit {},10;""".format(word, limit))
         question_list = cur.fetchall()
         return render_template('question/question_list.html', question_list=question_list, lp = total_page, p_page=p_page, form = form)
 
