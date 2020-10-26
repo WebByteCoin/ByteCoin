@@ -51,3 +51,7 @@ def introduce():
 @bp.route('/introduce_coin')
 def introduce_coin():
     return render_template('introduce_coin.html')
+
+@bp.route('/int')
+def int():
+    return render_template('int.html')

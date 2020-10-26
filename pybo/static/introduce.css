@@ -1,6 +1,7 @@
 .all {
   position:relative;
-  top: 100px;
+  margin-top: 100px;
+  margin-bottom: 230px;
 
 }
 
@@ -8,7 +9,6 @@
   position: relative;
   margin: auto;
   width: 50%;
-  /* border-style: groove; */
   border-bottom: solid 1px grey;
   display:flex;
   background-color: whitesmoke;
@@ -17,14 +17,10 @@
 .tab_wrap{
   margin: auto;
   width:50%;
-  /* border: 2px solid black;
-  outline-style: outset;
-  outline-color: grey; */
-  /* border-style: groove; */
   font-size: 17px;
   height: 500px;
   background-color: whitesmoke;
-  overflow: auto;
+  overflow: scroll;
 
 }
 
@@ -47,7 +43,6 @@ button {
 }
 .tab_menu_btn:hover {
   color: black;
-  /* color:#df0000;  원래 컬러*/
 }
 .box_int{
 text-align: center;
