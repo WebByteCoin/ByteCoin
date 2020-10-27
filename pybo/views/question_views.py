@@ -23,7 +23,7 @@ def connect_data():
         password="1234",
         host="localhost",
         port=3306,
-        database="d_test"
+        database="dd_test"
     )
     return conn
 
