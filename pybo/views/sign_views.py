@@ -1,15 +1,13 @@
 from flask import Blueprint, url_for, render_template, flash, request, session,g
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import redirect
-from pybo import db
 from pybo.form import SignupForm , LoginForm
-from pybo.models import User
 import functools
 import mariadb
-import sys
+
 
 bp = Blueprint('auth', __name__, url_prefix='/auth')
-
+# 데이터베이스 연결
 def connect_data():
     conn = mariadb.connect(
         user="root",
@@ -77,6 +75,7 @@ def login():
         flash(error)
     return render_template('sign/login.html', form=form)
 
+# 현재 세션에 로그인 되어있는지 확인
 @bp.before_app_request
 def load_logged_in_user():
     user_id = session.get('user_id')

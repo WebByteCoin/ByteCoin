@@ -1,15 +1,14 @@
 from datetime import datetime
 from flask import Blueprint, url_for, request, render_template,g
 from werkzeug.utils import redirect
-from .. import db
-from ..models import Question, Answer
 from ..form import AnswerForm
 from pybo.views.sign_views import login_required
 import mariadb
-import sys
+
 
 bp = Blueprint('answer', __name__,url_prefix='/answer')
 
+# 데이터베이스 연결
 def connect_data():
     conn = mariadb.connect(
         user="root",
@@ -26,7 +25,7 @@ def connect_data():
 @login_required
 def create(question_id):
     form = AnswerForm()
-
+    #전달받은 폼의 제대로 입력되있는지 판단
     if form.validate_on_submit():
         conn = connect_data()
         cur = conn.cursor()

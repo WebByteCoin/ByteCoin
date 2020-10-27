@@ -1,18 +1,22 @@
 # ---------------------------------------- [edit] ---------------------------------------- #
 from flask import Blueprint, render_template  , url_for, request,g , session
-from werkzeug.utils import redirect
-from datetime import datetime
-from .. import db
-from ..models import Question
+from werkzeug.utils import redirect, secure_filename
+import os
 from ..form import QuestionForm, AnswerForm ,SearchForm
 from pybo.views.sign_views import login_required
 import mariadb
 import sys
 import math
+from flask import Flask, send_from_directory, send_file
+import datetime
 
+
+# 파일 업로드와 다운로드파일을 관리하는 폴더의 경로
+path = 'c:/projects/myproject/pybo/uploads/'
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
+# 데이터베이스 연결
 def connect_data():
     conn = mariadb.connect(
         user="root",
@@ -67,7 +71,7 @@ def detail():
     form = AnswerForm()
     conn = connect_data()
     cur = conn.cursor()
-    cur.execute("SELECT title , content , reporter , reg_date , p_id FROM post where p_id = {} ".format(q))
+    cur.execute("SELECT title , content , reporter , reg_date , p_id, imgfile FROM post where p_id = {} ".format(q))
     question = cur.fetchone()
     cur.execute("SELECT nick_name FROM reporter WHERE r_id = {}".format(question[2]))
     reporter = cur.fetchone()
@@ -77,8 +81,20 @@ def detail():
 
     return render_template('question/question_detail.html', question=question, form=form, reporter = reporter , answer = answer)
 
+# 업로드하려는 파일이 서버에 업로드되어있는지 체크하는 재귀함수
+def checkfile(file):
+    conn = connect_data()
+    cur = conn.cursor()
+    f = file
+    cur.execute("SELECT imgfile FROM post WHERE imgfile = '{}'".format(f))
+    checkimg = cur.fetchone()
+    if checkimg:
+        f = '(1)' + f
+        return checkfile(f)
+    else:
+        return f
 
-# 질문 생성
+# 질문 생성(세션에 로그인 되어있어야함)
 @bp.route('/create/', methods=('GET','POST'))
 @login_required
 def create():
@@ -86,18 +102,46 @@ def create():
     if request.method == 'POST' and form.validate_on_submit():
         conn = connect_data()
         cur = conn.cursor()
-        cur.execute("SELECT r_id FROM reporter WHERE nick_name = '{}'".format(g.user))
-        reporter = cur.fetchone()
-        cur.execute("""INSERT INTO post
-(title, content, reporter, reg_date, pub_date)
-VALUES('{}','{}', {}, current_timestamp(), NULL);""".format(form.subject.data,form.content.data,reporter[0]))
-        conn.commit()
-        # question = Question(subject=form.subject.data, content=form.content.data,
-        #                     create_date=datetime.now(), user=g.user)
-        # db.session.add(question)
-        # db.session.commit()
+        path = 'c:/projects/myproject/pybo/uploads/'
+
+        if request.files['file']:
+
+            f = request.files['file']
+            name = checkfile(f.filename)
+
+            f.save(path+ name)
+            cur = conn.cursor()
+            cur.execute("SELECT r_id FROM reporter WHERE nick_name = '{}'".format(g.user))
+            reporter = cur.fetchone()
+            cur.execute("""INSERT INTO post
+                        (title, content, reporter, reg_date, pub_date,imgfile)
+                        VALUES('{}','{}', {}, current_timestamp(), NULL,'{}');""".format(form.subject.data,
+                                                                                         form.content.data,
+                                                                                         reporter[0], name))
+            conn.commit()
+        else:
+
+
+            cur = conn.cursor()
+            cur.execute("SELECT r_id FROM reporter WHERE nick_name = '{}'".format(g.user))
+            reporter = cur.fetchone()
+            cur.execute("""INSERT INTO post
+            (title, content, reporter, reg_date, pub_date,imgfile)
+            VALUES('{}','{}', {}, current_timestamp(), NULL, NULL);""".format(form.subject.data, form.content.data,
+                                                                             reporter[0]))
+            conn.commit()
+
+
+
+
+
+
         return redirect(url_for('question._list'))
     return render_template('question/question_form.html', form=form)
+
+
+
+
 
 # 게시글 삭제
 @bp.route('/delete')
@@ -112,4 +156,16 @@ def post_delete():
 
         return redirect(url_for('question._list'))
     return redirect(url_for('question._list'))
+
+# 파일 다운로드
+@bp.route('download')
+@login_required
+def download():
+    imgnum = request.args.get('img', type=str)
+
+    return send_file(path + imgnum, attachment_filename= imgnum,as_attachment=True)
+
+
+
+
 

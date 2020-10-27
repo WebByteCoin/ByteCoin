@@ -1,13 +1,14 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, PasswordField
+from wtforms import StringField, TextAreaField, PasswordField, FileField
 from wtforms.fields.html5 import EmailField
 from wtforms.validators import DataRequired, Length , EqualTo, Email
+from flask_wtf.file import FileAllowed
 
 # 질문 폼
 class QuestionForm(FlaskForm):
     subject = StringField('제목', validators=[DataRequired('제목을 입력해주세요 !')])
     content = TextAreaField('내용', validators=[DataRequired('내용을 입력해주세요 !')])
-
+    file = FileField('이미지파일', validators=[FileAllowed(['jpg','png','txt'],'jpg/png/txt 파일만 지원합니다 (500kb)이하')])
 
 # 답변 폼
 class AnswerForm(FlaskForm):
@@ -32,7 +33,7 @@ class LoginForm(FlaskForm):
 class UpdateForm(FlaskForm):
     password1 = PasswordField('현재 비밀번호', validators=[DataRequired()])
     password2 = PasswordField('변경할 비밀번호', validators=[
-        DataRequired(), EqualTo('password3', '변경할 비밀번호가 일치하지 않습니다. !')])
+    DataRequired(), EqualTo('password3', '변경할 비밀번호가 일치하지 않습니다. !')])
     password3 = PasswordField('변경할 비밀번호 확인', validators=[DataRequired()])
 
 # 게시글검색

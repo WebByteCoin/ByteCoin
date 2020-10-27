@@ -1,12 +1,10 @@
-from flask import Blueprint, render_template, url_for , request
-from datetime import datetime
-from ..models import Question , User
-from werkzeug.utils import redirect
+from flask import Blueprint, render_template , request
 import mariadb
-import sys
 import math
+
 bp = Blueprint('main', __name__,url_prefix='/')
 
+# 데이터베이스 연결
 def connect_data():
     conn = mariadb.connect(
         user="root",
@@ -19,15 +17,12 @@ def connect_data():
 
 
 
-
-@bp.route('/hello')
-def hello_pybo():
-    return 'Hello,Pybo'
-
+# 코인 시세화면
 @bp.route('/')
 def loot():
     return render_template('api_onworking.html')
 
+# 관리자 페이지
 @bp.route('/manage')
 def manage():
     p_page = request.args.get('page', type=int, default = 1)
@@ -44,14 +39,17 @@ def manage():
 
     return render_template('/sign/manage.html', user_list = user_list, lp = total_page,p_page=p_page)
 
+# 거래사이트 소개 페이지
 @bp.route('/introduce')
 def introduce():
     return render_template('introduce.html')
 
+# 코인 소개 페이지
 @bp.route('/introduce_coin')
 def introduce_coin():
     return render_template('introduce_coin.html')
 
+# 페이지 소개 페이지
 @bp.route('/int')
 def int():
     return render_template('int.html')

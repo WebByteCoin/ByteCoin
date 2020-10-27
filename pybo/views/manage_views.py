@@ -1,12 +1,10 @@
 from flask import Blueprint, render_template, url_for , request ,session
-from datetime import datetime
-from ..models import Question , User
 from werkzeug.utils import redirect
 import mariadb
-import sys
 import math
 bp = Blueprint('manage', __name__,url_prefix='/manage')
 
+# 데이터베이스 연결
 def connect_data():
     conn = mariadb.connect(
         user="root",
