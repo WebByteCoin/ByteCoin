@@ -147,7 +147,16 @@ def create():
 @bp.route('/delete')
 def post_delete():
     user_id = session.get('user_id')
+    question_name = request.args.get('user', type=str)
     if user_id == "admin":
+        p_id = request.args.get('p_id', type=int)
+        conn = connect_data()
+        cur = conn.cursor()
+        cur.execute("DELETE FROM post WHERE p_id = {}".format(p_id))
+        conn.commit()
+        return redirect(url_for('question._list'))
+
+    elif user_id == question_name:
         p_id = request.args.get('p_id', type=int)
         conn = connect_data()
         cur = conn.cursor()
