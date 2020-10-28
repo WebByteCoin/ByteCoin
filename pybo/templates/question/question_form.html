@@ -1,7 +1,7 @@
 {% extends 'pro.html' %}
 {% block content %}
 <div><br></div>
-<div class="container table-responsive table-secondary shadow rounded-sm">
+<div class="container table-responsive table-secondary shadow rounded-sm" style="margin-top :70px; margin-bottom:40px;">
     <h5 class="my-3 border-bottom pb-2 font-weight-bold">질문 등록</h5>
     <form method="post" class="post-form my-3" enctype = "multipart/form-data">
         {{ form.csrf_token }}
@@ -25,7 +25,7 @@
             <label for="content">내용</label>
              -->
             <input type="file" placeholder="파일첨부" class="btn btn-secondary float-right" name="file" id="file">
-            <textarea placeholder="내용" class="form-control" name="content" id="content" rows="5"></textarea>
+            <textarea placeholder="내용" class="form-control" name="content" id="content" rows="5" style="height: 500px;"></textarea>
             <br>
             <button type="submit" class="btn btn-secondary float-right">저장하기</button>
         </div>
