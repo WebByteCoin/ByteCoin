@@ -12,7 +12,7 @@ import datetime
 
 
 # 파일 업로드와 다운로드파일을 관리하는 폴더의 경로
-path = 'c:/projects/myproject/pybo/uploads/'
+path = '/home/ubuntu/projects/myproject/pybo/uploads'
 
 bp = Blueprint('question', __name__, url_prefix='/question')
 
